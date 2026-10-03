@@ -11,21 +11,13 @@ jobs:
       - name: Baixar código
         uses: actions/checkout@v4
 
-      - name: Instalar ferramentas Android
-        uses: android-actions/setup-android@v3
-
-      - name: Instalar SDK Android
-        run: |
-          yes | sdkmanager --licenses || true
-          sdkmanager "platform-tools" "platforms;android-35" "build-tools;35.0.0"
-
-      - name: Instalar Java 17
+      - name: Configurar Java 17
         uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: '17'
 
-      - name: Instalar Gradle
+      - name: Configurar Gradle
         uses: gradle/actions/setup-gradle@v4
         with:
           gradle-version: '8.7'
@@ -33,16 +25,23 @@ jobs:
       - name: Extrair projeto
         run: |
           unzip -o CCM_Procura_TAGs_GITHUB_BUILD.zip
-          find . -name "settings.gradle" -print
+          echo "Conteúdo extraído:"
+          find . -maxdepth 3 -type f | head -100
+
+      - name: Localizar projeto Android
+        run: |
+          PROJECT_DIR=$(dirname "$(find . -name settings.gradle -o -name settings.gradle.kts | head -1)")
+          echo "PROJECT_DIR=$PROJECT_DIR" >> "$GITHUB_ENV"
+          echo "Projeto encontrado em: $PROJECT_DIR"
 
       - name: Compilar APK
         run: |
-          cd CCM_Procura_TAGs_FINAL
+          cd "$PROJECT_DIR"
           gradle :app:assembleDebug --stacktrace
 
       - name: Disponibilizar APK
         uses: actions/upload-artifact@v4
         with:
           name: CCM-Procura-TAGs-APK
-          path: CCM_Procura_TAGs_FINAL/app/build/outputs/apk/debug/app-debug.apk
+          path: ${{ env.PROJECT_DIR }}/app/build/outputs/apk/debug/app-debug.apk
           if-no-files-found: error
