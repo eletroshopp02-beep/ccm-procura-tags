@@ -1,0 +1,19 @@
+{
+  "name": "Manutenção Pro Industrial",
+  "short_name": "Manutenção Pro",
+  "lang": "pt-BR",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#030912",
+  "theme_color": "#061321",
+  "icons": [
+    {
+      "src": "./icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
