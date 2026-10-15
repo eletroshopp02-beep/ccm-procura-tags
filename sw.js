@@ -1,7 +1,8 @@
-const CACHE_NAME = 'manutencao-pro-v2-19';
+const CACHE_NAME = 'manutencao-pro-v2-20';
 const APP_SHELL = [
   './',
   './index.html',
+  './tags-base.js',
   './manifest.json',
   './icons/icon.svg'
 ];
