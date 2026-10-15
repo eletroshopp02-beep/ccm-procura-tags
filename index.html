@@ -205,7 +205,7 @@ async function quickSearch(){
  if(!box)return;if(!q){box.innerHTML='';return}
  const nq=normalizeSearch(q);
  let tags=(db.tags||[]).filter(t=>normalizeSearch([t.tag,t.name,t.area,t.ccm,t.model,t.power].join(' ')).includes(nq));
- const fs=faults.filter(f=>normalizeSearch(f.join(' ')).includes(nq));
+ const faultIntent=/^(?:f\s*\d{2,4}|cfw\s*11\b)/i.test(q)||/\b(falha|alarme|inversor|cfw11)\b/i.test(q);const fs=faultIntent?faults.filter(f=>normalizeSearch(f.join(' ')).includes(nq)||normalizeSearch(f[0]).includes(nq)):[];
  drawSearchResults(tags,fs,q);
  if(!cloudClient){try{await getCloudClient()}catch(e){return}}
  if(!cloudClient)return;
@@ -221,7 +221,7 @@ async function quickSearch(){
    const map=new Map((db.tags||[]).map(t=>[normalizeSearch(t.tag),t]));
    found.forEach(t=>map.set(normalizeSearch(t.tag),{tag:t.tag,name:t.name||'',area:t.area||'',ccm:t.ccm||'',model:t.model||t.manufacturer||'',power:t.power_voltage||''}));
    const merged=Array.from(map.values()).filter(t=>normalizeSearch([t.tag,t.name,t.area,t.ccm,t.model,t.power].join(' ')).includes(nq));
-   drawSearchResults(merged,fs,q,true);
+   drawSearchResults(merged,(/^(?:f\s*\d{2,4}|cfw\s*11\b)/i.test(q)||/\b(falha|alarme|inversor|cfw11)\b/i.test(q))?fs:[],q,true);
   }
  }catch(e){console.warn('Busca remota de TAG indisponível',e)}
 }
