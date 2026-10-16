@@ -244,7 +244,7 @@ function quickSearch(){
    const compactQuery=nq.replace(/[\s._/-]/g,'');
    // Sufixos numéricos (ex.: 4242) devem localizar somente TAGs cujo
    // código termina exatamente nesse sufixo, nunca por dados de área/CCM.
-   if(onlyDigits)return compactTag.endsWith(compactQuery);
+   if(onlyDigits)return compactTag.includes(compactQuery);
    if(codeLike)return compactTag.includes(compactQuery);
    return normalizeSearch([t.tag,t.name,t.area,t.ccm,t.column,t.model,t.power].join(' ')).includes(nq);
  });
