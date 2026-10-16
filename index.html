@@ -270,8 +270,8 @@ async function refreshSharedCatalog(){
  try{
   if(!navigator.onLine)throw new Error('Sem conexão com a internet. Conecte-se e tente novamente.');
   const client=await getCloudClient();
-  await ensureTeamSession(client);
-  cloudStatus('Consultando atualizações no Supabase…','neutral');
+  // Leitura pública do catálogo: não exigir conta/login para atualizar aparelhos.
+  cloudStatus('Consultando atualizações públicas no Supabase…','neutral');
   const [{data:remoteTags,error:tagError},{data:remoteAreas,error:areaError},{data:remoteDiagnostics,error:diagError}]=await Promise.all([
    client.from('equipment').select('tag,name,area,ccm,manufacturer,model,power_voltage').order('tag'),
    client.from('plant_areas').select('name,ccm').order('name'),
