@@ -240,8 +240,8 @@ function quickSearch(){
  const codeLike=/^[a-z0-9._/-]+$/i.test(q)&&!/\s/.test(q);
  const tags=(db.tags||[]).filter(t=>{
    const tag=normalizeSearch(t.tag||'');
-   const compactTag=tag.replace(/[\\s._/-]/g,'');
-   const compactQuery=nq.replace(/[\\s._/-]/g,'');
+   const compactTag=tag.replace(/[\s._/-]/g,'');
+   const compactQuery=nq.replace(/[\s._/-]/g,'');
    // Sufixos numéricos (ex.: 4242) devem localizar somente TAGs cujo
    // código termina exatamente nesse sufixo, nunca por dados de área/CCM.
    if(onlyDigits)return compactTag.endsWith(compactQuery);
