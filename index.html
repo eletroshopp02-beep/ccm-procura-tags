@@ -230,12 +230,27 @@ function drawSearchResults(tags,fs,q,remote=false){
  box.innerHTML=tagHtml+faultHtml+(!tags.length&&!fs.length?'<div class="search-empty">Nenhuma TAG ou equipamento encontrado neste aparelho. Confira o código ou importe um backup em Mais → Importar / exportar.</div>':'');
 }
 function quickSearch(){
- const q=String(document.getElementById('q')?.value||'').trim(),box=document.getElementById('searchresults');
- if(!box)return;if(!q){searchResultLimit=20;box.innerHTML='';return}
+ const input=document.getElementById('q'),box=document.getElementById('searchresults');
+ if(!input||!box)return;
+ const q=String(input.value||'').trim();
+ if(!q){searchResultLimit=20;box.innerHTML='';return}
  const nq=normalizeSearch(q);
- const tags=(db.tags||[]).filter(t=>normalizeSearch([t.tag,t.name,t.area,t.ccm,t.column,t.model,t.power].join(' ')).includes(nq));
+ // Quando a busca parece um código de TAG (números/letras sem espaços),
+ // pesquisar somente no campo TAG. Evita resultados falsos por área, CCM
+ // ou descrição que contenham os mesmos dígitos.
+ const codeLike=/^[a-z0-9._/-]+$/i.test(q)&&!/\s/.test(q);
+ const tags=(db.tags||[]).filter(t=>{
+   const tag=normalizeSearch(t.tag||'');
+   if(codeLike){
+     const compactTag=tag.replace(/[\s._/-]/g,'');
+     const compactQuery=nq.replace(/[\s._/-]/g,'');
+     return compactTag.includes(compactQuery);
+   }
+   return normalizeSearch([t.tag,t.name,t.area,t.ccm,t.column,t.model,t.power].join(' ')).includes(nq);
+ });
  const faultIntent=/^(?:f\s*\d{2,4}|cfw\s*11\b)/i.test(q)||/\b(falha|alarme|inversor|cfw11)\b/i.test(q);
  const fs=faultIntent?faults.filter(f=>normalizeSearch(f.join(' ')).includes(nq)||normalizeSearch(f[0]).includes(nq)):[];
+ // Nunca deixar resultados antigos visíveis entre uma pesquisa e outra.
  drawSearchResults(tags,fs,q);
 }
 function openTagByValue(tag){const i=(db.tags||[]).findIndex(t=>normalizeSearch(t.tag)===normalizeSearch(tag));if(i>=0){openTagByIndex(i);return}if(cloudClient){cloudClient.from('equipment').select('tag,name,area,ccm,manufacturer,model,power_voltage').eq('tag',tag).maybeSingle().then(({data,error})=>{if(error||!data)return;db.tags.unshift({tag:data.tag,name:data.name||'',area:data.area||'',ccm:data.ccm||'',model:data.model||data.manufacturer||'',power:data.power_voltage||''});localStorage.setItem(KEY,JSON.stringify(db));openTagByIndex(0)})}}
