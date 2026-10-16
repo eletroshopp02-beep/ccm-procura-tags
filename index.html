@@ -272,12 +272,20 @@ async function refreshSharedCatalog(){
   const client=await getCloudClient();
   // Leitura pública do catálogo: não exigir conta/login para atualizar aparelhos.
   cloudStatus('Consultando atualizações públicas no Supabase…','neutral');
-  const [{data:remoteTags,error:tagError},{data:remoteAreas,error:areaError},{data:remoteDiagnostics,error:diagError}]=await Promise.all([
-   client.from('equipment').select('tag,name,area,ccm,manufacturer,model,power_voltage').order('tag'),
+  // Supabase limita a quantidade de linhas por resposta; buscar em páginas
+  // para trazer o catálogo inteiro, não apenas as primeiras 1.000 TAGs.
+  const remoteTags=[];
+  for(let offset=0; ; offset+=1000){
+   const {data,error}=await client.from('equipment').select('tag,name,area,ccm,manufacturer,model,power_voltage').order('tag').range(offset,offset+999);
+   if(error)throw error;
+   const page=data||[];remoteTags.push(...page);
+   if(page.length<1000)break;
+  }
+  const [{data:remoteAreas,error:areaError},{data:remoteDiagnostics,error:diagError}]=await Promise.all([
    client.from('plant_areas').select('name,ccm').order('name'),
    client.from('community_diagnostics').select('id,title,fault_code,equipment_tag,equipment_model,symptoms,diagnosis,solution,safety_notes,created_at,created_by,revision,correction_note,corrected_at,status').order('created_at',{ascending:false}).limit(500)
   ]);
-  if(tagError)throw tagError;if(areaError)throw areaError;if(diagError)throw diagError;
+  if(areaError)throw areaError;if(diagError)throw diagError;
   const norm=x=>String(x||'').trim().toLocaleLowerCase('pt-BR');
   const tagMap=new Map((db.tags||[]).map(t=>[norm(t.tag),t]));
   for(const t of remoteTags||[]){
