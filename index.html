@@ -196,7 +196,8 @@ clip-path:polygon(0 65%,12% 65%,12% 35%,22% 35%,22% 52%,32% 52%,32% 8%,43% 8%,43
 <section id="calc" class="page"><h2>Calculadoras técnicas</h2><div class="panel"><h3>Corrente motor · CFW11</h3><div class="row"><input id="nom" type="number" placeholder="Corrente nominal A"><input id="meas" type="number" placeholder="Corrente medida A"></div><input id="drive" type="number" placeholder="Corrente configurada (opcional)"><button class="btn calc-action" onclick="current()">Calcular</button><div id="cr" class="result-box calc-result" aria-live="polite"></div></div><div class="panel"><h3>Referência de cálculo para parâmetros 156/157/158</h3><input id="pn" type="number" placeholder="Corrente nominal A"><div class="row"><button class="btn" onclick="param(1.09)">× 1,09</button><button class="btn" onclick="param(.8)">× 0,8</button><button class="btn" onclick="param(.05)">× 0,05</button></div><div id="pr"></div><p class="muted">Os fatores fornecidos anteriormente não equivalem matematicamente a 100%, 50% e 5% da mesma base. Valide a fórmula e a versão do inversor antes de usar para ajuste.</p></div><div class="panel"><h3>Micrômetro · comparação dimensional</h3><p class="helper">Escolha o que está medindo, informe três leituras e, se houver, a tolerância máxima do desenho técnico.</p><label for="dtype">Tipo de medição</label><select id="dtype"><option>Diâmetro do eixo em diferentes posições</option><option>Espessura / dimensão de peça</option><option>Folga entre componentes</option><option>Outra medição dimensional</option></select><label for="dunit">Unidade do micrômetro</label><select id="dunit"><option value="mm">mm (milímetros)</option><option value="um">µm (micrômetros)</option></select><div class="row"><input id="d1" type="number" step="any" placeholder="Leitura 1" inputmode="decimal"><input id="d2" type="number" step="any" placeholder="Leitura 2" inputmode="decimal"><input id="d3" type="number" step="any" placeholder="Leitura 3" inputmode="decimal"></div><label for="dtol">Variação máxima permitida (opcional, mesma unidade)</label><input id="dtol" type="number" min="0" step="any" placeholder="Consulte desenho / procedimento"><button class="btn" onclick="dim()">Calcular e avaliar</button><div id="dr" class="result-box"></div><p class="muted">A amplitude entre leituras não mede, por si só, desbalanceamento dinâmico nem batimento do eixo. Para esses ensaios, use o método e os instrumentos específicos.</p></div></section>
 
 <section id="history" class="page"><h2>Histórico local</h2><div id="hist"></div><button class="btn" onclick="if(confirm('Limpar histórico?')){db.hist=[];save()}">Limpar histórico</button></section>
-<section id="data" class="page"><h2>Dados e instalação</h2><div class="panel" id="offline-panel"><h3>📱 Modo autônomo e offline</h3><p class="helper">Sem login e sem conta. Cada aparelho mantém seus próprios registros. Para trocar informações com a equipe, gere um relatório ou exporte um pacote de dados e envie pelo WhatsApp; quem receber pode importar no próprio app.</p><div class="row"><button class="btn" onclick="shareTeamReport()">📤 Compartilhar relatório da manutenção</button><button class="btn" onclick="backup()">⬇ Exportar pacote de dados</button></div><label for="restore-package">Importar pacote recebido da equipe (.json)</label><input id="restore-package" type="file" accept=".json,application/json" onchange="mergeTeamPackage(event)"><div id="offline-status" class="result-status status-neutral" role="status">Seus dados ficam neste dispositivo até você exportar ou compartilhar. Faça backups periódicos.</div><p class="muted">O compartilhamento é manual e controlado por você. Não existe sincronização automática entre aparelhos sem um servidor comum.</p></div>
+<section id="data" class="page"><h2>Dados e instalação</h2><div class="panel" id="shared-update-panel"><h3>🔄 Atualizar catálogo compartilhado</h3><p class="helper">Busque no Supabase as TAGs, áreas/CCMs e diagnósticos mais recentes da equipe. Esta ação baixa atualizações sem enviar nem apagar seus registros locais.</p><button id="refresh-shared-btn" class="btn" onclick="refreshSharedCatalog()">⬇️ Atualizar informações agora</button><div id="cloud-status" class="result-status status-neutral" role="status">Toque no botão quando estiver conectado à internet.</div></div>
+<div class="panel" id="offline-panel"><h3>📱 Modo autônomo e offline</h3><p class="helper">Sem login e sem conta. Cada aparelho mantém seus próprios registros. Para trocar informações com a equipe, gere um relatório ou exporte um pacote de dados e envie pelo WhatsApp; quem receber pode importar no próprio app.</p><div class="row"><button class="btn" onclick="shareTeamReport()">📤 Compartilhar relatório da manutenção</button><button class="btn" onclick="backup()">⬇ Exportar pacote de dados</button></div><label for="restore-package">Importar pacote recebido da equipe (.json)</label><input id="restore-package" type="file" accept=".json,application/json" onchange="mergeTeamPackage(event)"><div id="offline-status" class="result-status status-neutral" role="status">Seus dados ficam neste dispositivo até você exportar ou compartilhar. Faça backups periódicos.</div><p class="muted">O compartilhamento é manual e controlado por você. Não existe sincronização automática entre aparelhos sem um servidor comum.</p></div>
 <div class="panel"><h3>🛠 Diagnóstico colaborativo</h3><p class="helper">Registre a falha, medições, causa e solução. Tudo fica salvo neste aparelho. Depois, compartilhe o relatório no WhatsApp ou exporte o pacote para outro técnico importar.</p>
 <label for="diag-title">Título da falha</label><input id="diag-title" placeholder="Ex.: CFW11 não habilita">
 <label for="diag-code">Código de falha (opcional)</label><input id="diag-code" placeholder="Ex.: F084">
@@ -263,6 +264,43 @@ async function ensureTeamSession(c){const {data,error}=await c.auth.getSession()
 async function cloudSignIn(){return cloudSync()}
 async function cloudSignUp(){return cloudSync()}
 async function cloudSignOut(){try{if(!cloudClient)cloudClient=await getCloudClient();const {error}=await cloudClient.auth.signOut();if(error)throw error;cloudStatus('Sessão deste aparelho encerrada. Os dados locais foram preservados.','neutral')}catch(e){cloudStatus('Não foi possível encerrar a sessão: '+(e.message||e),'warn')}}
+async function refreshSharedCatalog(){
+ const btn=document.getElementById('refresh-shared-btn');
+ if(btn){btn.disabled=true;btn.textContent='⏳ Atualizando catálogo…'}
+ try{
+  if(!navigator.onLine)throw new Error('Sem conexão com a internet. Conecte-se e tente novamente.');
+  const client=await getCloudClient();
+  await ensureTeamSession(client);
+  cloudStatus('Consultando atualizações no Supabase…','neutral');
+  const [{data:remoteTags,error:tagError},{data:remoteAreas,error:areaError},{data:remoteDiagnostics,error:diagError}]=await Promise.all([
+   client.from('equipment').select('tag,name,area,ccm,manufacturer,model,power_voltage').order('tag'),
+   client.from('plant_areas').select('name,ccm').order('name'),
+   client.from('community_diagnostics').select('id,title,fault_code,equipment_tag,equipment_model,symptoms,diagnosis,solution,safety_notes,created_at,created_by,revision,correction_note,corrected_at,status').order('created_at',{ascending:false}).limit(500)
+  ]);
+  if(tagError)throw tagError;if(areaError)throw areaError;if(diagError)throw diagError;
+  const norm=x=>String(x||'').trim().toLocaleLowerCase('pt-BR');
+  const tagMap=new Map((db.tags||[]).map(t=>[norm(t.tag),t]));
+  for(const t of remoteTags||[]){
+   const key=norm(t.tag);if(!key)continue;
+   const local=tagMap.get(key)||{};
+   tagMap.set(key,{...local,tag:t.tag,name:t.name||local.name||'',area:t.area||local.area||'',ccm:t.ccm||local.ccm||'',manufacturer:t.manufacturer||local.manufacturer||'',model:t.model||local.model||t.manufacturer||'',power:t.power_voltage||local.power||'',power_voltage:t.power_voltage||local.power_voltage||'',location:local.location||t.ccm||''});
+  }
+  db.tags=Array.from(tagMap.values());
+  const areaMap=new Map((db.areas||[]).map(a=>[norm(a.area)+'|'+norm(a.ccm),a]));
+  for(const a of remoteAreas||[]){const key=norm(a.name)+'|'+norm(a.ccm);const old=areaMap.get(key)||{};areaMap.set(key,{...old,area:a.name||old.area||'',ccm:a.ccm||old.ccm||''})}
+  db.areas=Array.from(areaMap.values());
+  const diagMap=new Map((db.communityDiagnostics||[]).map(d=>[d.id,d]));
+  for(const d of remoteDiagnostics||[])diagMap.set(d.id,{...d,localOnly:false});
+  db.communityDiagnostics=Array.from(diagMap.values());
+  localStorage.setItem(KEY,JSON.stringify(db));
+  render();
+  if(typeof renderCommunityDiagnostics==='function')renderCommunityDiagnostics();
+  const message='Atualização concluída: '+(remoteTags||[]).length+' TAGs, '+(remoteAreas||[]).length+' áreas/CCMs e '+(remoteDiagnostics||[]).length+' diagnósticos recebidos. Seus registros locais foram preservados.';
+  cloudStatus(message,'ok');
+  if(typeof offlineStatus==='function')offlineStatus(message);
+ }catch(e){cloudStatus('Não foi possível atualizar: '+(e.message||e)+'. Os dados locais foram preservados.','warn')}
+ finally{if(btn){btn.disabled=false;btn.textContent='⬇️ Atualizar informações agora'}}
+}
 async function cloudSync(){try{const c=await getCloudClient();const teamSession=await ensureTeamSession(c);const sessionData={session:teamSession};cloudStatus('Enviando e recebendo TAGs, áreas/CCMs e diagnósticos…','neutral');
 const localTags=(db.tags||[]).filter(t=>t.tag).map(t=>({tag:String(t.tag).trim(),name:String(t.name||t.tag).trim(),equipment_type:'other',manufacturer:t.manufacturer||t.model||null,model:t.model||null,area:t.area||null,ccm:t.ccm||null,location:t.location||t.ccm||null,power_voltage:t.power_voltage||t.power||null}));
 if(localTags.length){const {error}=await c.from('equipment').upsert(localTags,{onConflict:'tag'});if(error)throw error}
