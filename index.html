@@ -244,8 +244,17 @@ function quickSearch(){
    const compactQuery=nq.replace(/[\s._/-]/g,'');
    // Sufixos numéricos (ex.: 4242) devem localizar somente TAGs cujo
    // código termina exatamente nesse sufixo, nunca por dados de área/CCM.
-   if(onlyDigits)return compactTag.includes(compactQuery);
-   if(codeLike)return compactTag.includes(compactQuery);
+   if(onlyDigits){
+     if(compactTag.endsWith(compactQuery))return true;
+     const rawTag=String(t.tag||'').trim();
+     const isSingleCode=!/[\s/;,]/.test(rawTag);
+     return isSingleCode&&compactTag.includes(compactQuery);
+   }
+   if(codeLike){
+     const rawTag=String(t.tag||'').trim();
+     if(/[\s/;,]/.test(rawTag))return false;
+     return compactTag.includes(compactQuery);
+   }
    return normalizeSearch([t.tag,t.name,t.area,t.ccm,t.column,t.model,t.power].join(' ')).includes(nq);
  });
  const faultIntent=/^(?:f\\s*\\d{2,4}|cfw\\s*11\\b)/i.test(q)||/\\b(falha|alarme|inversor|cfw11)\\b/i.test(q);
