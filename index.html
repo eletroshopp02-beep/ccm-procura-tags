@@ -339,7 +339,7 @@ async function refreshSharedCatalog(){
  }catch(e){cloudStatus('Não foi possível atualizar: '+(e.message||e)+'. Os dados locais foram preservados.','warn')}
  finally{if(btn){btn.disabled=false;btn.textContent='⬇️ Atualizar informações agora'}}
 }
-async function cloudSync(){try{const c=await getCloudClient();const teamSession=await ensureTeamSession(c);const sessionData={session:teamSession};cloudStatus('Enviando e recebendo TAGs, áreas/CCMs e diagnósticos…','neutral');
+async function cloudSync(){try{const c=await getCloudClient();const sessionData={session:{user:{id:null}}};cloudStatus('Enviando e recebendo TAGs e áreas/CCMs…','neutral');
 const localTags=(db.tags||[]).filter(t=>t.tag).map(t=>({tag:String(t.tag).trim(),name:String(t.name||t.tag).trim(),equipment_type:'other',manufacturer:t.manufacturer||t.model||null,model:t.model||null,area:t.area||null,ccm:t.ccm||null,location:t.location||t.ccm||null,power_voltage:t.power_voltage||t.power||null}));
 if(localTags.length){const {error}=await c.from('equipment').upsert(localTags,{onConflict:'tag'});if(error)throw error}
 const localAreas=(db.areas||[]).filter(a=>a.area||a.ccm).map(a=>({name:String(a.area||'Área não informada').trim(),ccm:String(a.ccm||'').trim()||null}));
