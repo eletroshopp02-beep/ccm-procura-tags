@@ -1,4 +1,4 @@
-const CACHE_NAME = 'manutencao-pro-v2-28';
+const CACHE_NAME = 'manutencao-pro-v2-29';
 const APP_SHELL = [
   './',
   './index.html',
@@ -31,6 +31,23 @@ self.addEventListener('fetch', event => {
 
   const url = new URL(request.url);
   if (url.origin !== self.location.origin) return;
+
+  // Catálogo mestre: tenta buscar a versão publicada mais recente e mantém
+  // a cópia em cache apenas como alternativa quando a rede falhar.
+  if (url.pathname.endsWith('/tags-base.js')) {
+    event.respondWith(
+      fetch(request, { cache: 'no-cache' })
+        .then(response => {
+          if (response && response.ok) {
+            const copy = response.clone();
+            caches.open(CACHE_NAME).then(cache => cache.put(request, copy));
+          }
+          return response;
+        })
+        .catch(() => caches.match(request))
+    );
+    return;
+  }
 
   if (request.mode === 'navigate') {
     event.respondWith(
