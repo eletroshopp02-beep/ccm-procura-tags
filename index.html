@@ -245,10 +245,12 @@ function quickSearch(){
    // Sufixos numéricos (ex.: 4242) devem localizar somente TAGs cujo
    // código termina exatamente nesse sufixo, nunca por dados de área/CCM.
    if(onlyDigits){
-     if(compactTag.endsWith(compactQuery))return true;
-     const rawTag=String(t.tag||'').trim();
-     const isSingleCode=!/[\s/;,]/.test(rawTag);
-     return isSingleCode&&compactTag.includes(compactQuery);
+     // Procurar os quatro dígitos finais em cada referência, mesmo em células com várias TAGs.
+     const refs=String(t.tag||'').toUpperCase().match(/[A-Z0-9]+/g)||[];
+     if(refs.some(ref=>ref.replace(/[^A-Z0-9]/g,'').endsWith(compactQuery)))return true;
+     const combined=[t.name,t.area,t.ccm,t.column,t.model,t.power].filter(Boolean).join(' ').toUpperCase();
+     const candidates=combined.match(/[A-Z]{0,8}[0-9][A-Z0-9.]*/g)||[];
+     return candidates.some(ref=>ref.replace(/[^A-Z0-9]/g,'').endsWith(compactQuery));
    }
    if(codeLike){
      const rawTag=String(t.tag||'').trim();
