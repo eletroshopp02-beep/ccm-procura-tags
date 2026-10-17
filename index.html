@@ -407,6 +407,42 @@ clip-path:polygon(0 65%,12% 65%,12% 35%,22% 35%,22% 52%,32% 52%,32% 8%,43% 8%,43
 #home .foot{display:none!important}
 #home .bottom-nav{background:linear-gradient(180deg,#092136,#03101b)!important;border:1px solid #275c79!important;border-radius:28px!important;box-shadow:inset 0 1px #ffffff1a,0 0 16px #00bfff16!important}
 @media(max-width:390px){#home .home-hero-pro{min-height:275px!important;padding:20px 12px!important}#home .home-hero-copy{width:82%!important}#home .home-hero-pro h1{font-size:23px!important}#home .home-hero-art{width:64%!important;right:-22px!important;opacity:.7!important}#home .home-hero-pro .hero-actions{max-width:255px!important}#home .home-status-strip{margin:0 7px 13px!important}#home .home-status-strip b{font-size:8px!important}#home .home-status-strip small{font-size:6px!important}#home .home-pro-grid{gap:7px!important;margin:0 7px 13px!important}#home .pro-card{min-height:172px!important;border-radius:14px!important}#home .pro-card .pro-card-art{height:82px!important;flex-basis:82px!important}#home .pro-card-copy{padding:0 7px!important}#home .pro-card-copy strong{font-size:10px!important}#home .pro-card-copy small{font-size:7px!important}#home .pro-card-arrow{width:23px!important;height:23px!important;right:6px!important;bottom:6px!important}}
+
+/* Home dashboard polish: close to the approved visual reference */
+#home .home-hero-pro .hero-ai-cta{display:none!important}
+#home .home-hero-pro .hero-actions{max-width:285px!important}
+#home .home-hero-pro .hero-secondary{min-height:58px!important;font-size:14px!important;justify-content:flex-start!important}
+#home .home-status-strip{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+#home .home-status-strip>div{justify-content:center!important}
+#home .home-status-strip .status-icon{font-size:22px!important}
+#home .home-section-head{margin-top:4px!important}
+#home .home-pro-grid{align-items:stretch!important}
+#home .pro-card{min-height:196px!important;transition:transform .16s ease,filter .16s ease!important}
+#home .pro-card:active{transform:translateY(2px) scale(.99)!important;filter:brightness(1.12)!important}
+#home .pro-card .pro-card-art{height:108px!important;flex-basis:108px!important}
+#home .pro-card-copy{padding:0 10px!important}
+#home .pro-card-copy strong{font-size:12px!important;line-height:1.2!important}
+#home .pro-card-copy small{font-size:9px!important;line-height:1.35!important;padding-right:12px!important}
+#home .card-tags .pro-card-art{background:radial-gradient(ellipse at 45% 40%,#1478ad 0,transparent 58%),repeating-linear-gradient(90deg,transparent 0 12px,#5bdfff12 13px 14px),linear-gradient(145deg,#0e3c59,#04101d)!important}
+#home .card-areas .pro-card-art{background:radial-gradient(ellipse at 50% 45%,#b56b20 0,transparent 58%),repeating-linear-gradient(90deg,transparent 0 16px,#ffbd3912 17px 18px),linear-gradient(145deg,#38291b,#07111d)!important}
+#home .card-faults .pro-card-art{background:radial-gradient(ellipse at 50% 42%,#d21e38 0,transparent 52%),linear-gradient(145deg,#451522,#07111d)!important}
+#home .card-ai .pro-card-art{background:radial-gradient(ellipse at 50% 45%,#7541bd 0,transparent 60%),linear-gradient(145deg,#281748,#07111d)!important}
+#home .card-tests .pro-card-art{background:radial-gradient(ellipse at 50% 45%,#148f73 0,transparent 60%),linear-gradient(145deg,#0c3834,#07111d)!important}
+#home .card-motors .pro-card-art{background:radial-gradient(ellipse at 50% 45%,#1478ad 0,transparent 58%),linear-gradient(145deg,#0e3c59,#04101d)!important}
+#home .card-calc .pro-card-art{background:radial-gradient(ellipse at 50% 45%,#0b8f9b 0,transparent 60%),linear-gradient(145deg,#0c3b43,#07111d)!important}
+#home .card-history .pro-card-art{background:radial-gradient(ellipse at 50% 45%,#b56b20 0,transparent 58%),linear-gradient(145deg,#38291b,#07111d)!important}
+#home .card-data .pro-card-art{background:radial-gradient(ellipse at 50% 45%,#7541bd 0,transparent 60%),linear-gradient(145deg,#281748,#07111d)!important}
+#home .bottom{position:sticky!important;bottom:5px!important;z-index:20!important;display:grid!important;grid-template-columns:repeat(5,minmax(0,1fr))!important;margin:16px 0 0!important;padding:7px!important;border:1px solid #27617e!important;border-radius:28px!important;background:linear-gradient(180deg,#09263bF5,#03101bf7)!important;box-shadow:inset 0 1px #ffffff22,0 0 18px #00bfff20!important;backdrop-filter:blur(12px)!important}
+#home .bottom button{min-width:0!important;border-radius:20px!important;padding:7px 2px!important;color:#c7d9e5!important;font-size:10px!important}
+#home .bottom button span{display:block!important;font-size:24px!important;line-height:1.15!important;margin-bottom:2px!important}
+#home .bottom button.on{background:linear-gradient(180deg,#0c4b79,#06305b)!important;color:#4be5ff!important;box-shadow:inset 0 0 0 1px #29cfff88,0 0 15px #00bfff44!important}
+@media(max-width:390px){
+ #home .home-hero-pro{min-height:275px!important}
+ #home .pro-card{min-height:174px!important}
+ #home .pro-card .pro-card-art{height:87px!important;flex-basis:87px!important}
+ #home .pro-card-copy strong{font-size:10px!important}
+ #home .pro-card-copy small{font-size:8px!important}
+}
 </style></head><body><div id="mp-splash" style="position:fixed;z-index:999;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;background:radial-gradient(ellipse at center,#0d3a5e,#020711 72%);transition:opacity .6s,visibility .6s"><div><div style="width:140px;height:140px;margin:0 auto 25px;border-radius:36px;display:grid;place-items:center;background:linear-gradient(145deg,#061e32,#020915);border:2px solid #79eaff;box-shadow:inset 0 2px 12px #5bdfff40,0 0 32px #00aaff77,0 9px 0 #031a2d;animation:mpPulse 1.8s infinite alternate"><svg viewBox="0 0 160 160" width="118" height="118" role="img" aria-label="Manutenção Pro Industrial"><defs><linearGradient id="gearMetal" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#effcff"/><stop offset=".35" stop-color="#48dfff"/><stop offset=".7" stop-color="#087ce6"/><stop offset="1" stop-color="#e9fbff"/></linearGradient><linearGradient id="boltGold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff79a"/><stop offset=".5" stop-color="#ffc126"/><stop offset="1" stop-color="#ff6c00"/></linearGradient></defs><circle cx="80" cy="80" r="62" fill="#04182a" stroke="url(#gearMetal)" stroke-width="8"/><circle cx="80" cy="80" r="48" fill="#07375d" stroke="#20bfff" stroke-width="3"/><path d="M88 22 48 84h27l-5 54 43-70H85z" fill="url(#boltGold)" stroke="#fff0a6" stroke-width="2" stroke-linejoin="round"/><path d="M80 7v10M80 143v10M7 80h10M143 80h10M28 28l8 8M124 124l8 8M132 28l-8 8M36 124l-8 8" stroke="url(#gearMetal)" stroke-width="7" stroke-linecap="round"/></svg></div><div style="font-weight:950;font-size:30px">Manutenção <span style="color:#25d2ff">Pro</span></div><div style="letter-spacing:7px;color:#59d8ff;font-size:12px;margin:8px 0 24px">INDUSTRIAL</div><div style="height:6px;background:#0d2a41;border:1px solid #1a638e;border-radius:99px;overflow:hidden"><i style="display:block;height:100%;background:linear-gradient(90deg,#056dff,#45e1ff);animation:mpLoad 1.7s ease-out forwards"></i></div><div style="color:#9ab8cc;font-size:12px;margin-top:10px">Carregando ferramentas técnicas…</div><div style="font-weight:800;margin-top:22px">Criado por Hely</div><div style="color:#9ab8cc;font-size:11px">Aos colegas: segurança e conhecimento em cada serviço.</div></div></div><style>@keyframes mpLoad{from{width:0}to{width:100%}}@keyframes mpPulse{from{transform:scale(.98);filter:brightness(.9)}to{transform:scale(1.03);filter:brightness(1.15)}}</style><header class="head"><div class="logo" aria-label="Manutenção Pro"><svg viewBox="0 0 100 100" width="44" height="44" aria-hidden="true"><circle cx="50" cy="50" r="36" fill="#062541" stroke="#72e7ff" stroke-width="5"/><path d="M56 13 29 54h20l-4 34 28-46H54z" fill="#ffc42f" stroke="#fff2a1" stroke-width="2" stroke-linejoin="round"/></svg></div><div><div class="brand">Manutenção <span>Pro</span></div><div class="sub">INDUSTRIAL</div></div></header><section id="home" class="page active home-pro">
 <header class="home-topbar">
 <button class="home-top-icon" onclick="go('data')" aria-label="Mais opções">☰</button>
