@@ -343,6 +343,53 @@ clip-path:polygon(0 65%,12% 65%,12% 35%,22% 35%,22% 52%,32% 52%,32% 8%,43% 8%,43
 @media(min-width:520px){#home .home-hero-pro{min-height:300px;padding:26px!important}#home .home-hero-copy{width:58%}#home .home-hero-pro .hero-actions{flex-direction:row;flex-wrap:wrap;max-width:450px}#home .home-hero-pro .hero-actions .btn{width:auto;flex:1}#home .home-hero-pro .hero-ai-cta{max-width:260px}#home .pro-card{min-height:190px!important}#home .pro-card .pro-card-art{height:100px;flex-basis:100px}#home .pro-card-copy strong{font-size:13px!important}#home .pro-card-copy small{font-size:10px!important}}
 @media(max-width:390px){.home-topbar{gap:6px;padding:6px 8px}.home-top-icon{width:35px;height:35px;flex-basis:35px}.home-brandmark{font-size:8px;letter-spacing:1.4px}.home-brand-symbol{font-size:26px}#home .home-hero-pro{padding:17px 12px!important;min-height:235px}#home .home-hero-copy{width:72%}#home .home-hero-pro h1{font-size:22px!important}#home .home-hero-pro p{font-size:11px!important}#home .home-hero-pro .hero-actions{max-width:230px}#home .home-hero-pro .hero-actions .btn{font-size:10px!important;padding:8px!important}.home-status-strip{margin-left:8px;margin-right:8px;padding:6px 4px}.home-status-strip small{font-size:6px}.home-status-strip b{font-size:9px}#home .home-pro-grid{margin-left:7px!important;margin-right:7px!important;gap:6px!important}#home .pro-card{min-height:143px!important;border-radius:11px!important}#home .pro-card .pro-card-art{height:66px;flex-basis:66px}#home .pro-card-copy{padding:7px 7px 0!important}#home .pro-card-copy strong{font-size:10px!important}#home .pro-card-copy small{font-size:7px!important}#home .pro-card-arrow{width:19px;height:19px;font-size:18px;right:5px;bottom:5px}}
 
+
+/* Refinamento visual premium: cards com cenas industriais em CSS, sem imagens pesadas externas */
+#home .home-hero-pro{background:
+ radial-gradient(ellipse at 78% 42%,#0b5b7b55,transparent 34%),
+ radial-gradient(ellipse at 100% 90%,#d8791e22,transparent 36%),
+ linear-gradient(110deg,#061321f7 0%,#061522eF 52%,#08253af0 100%)!important}
+#home .home-hero-pro:after{content:"";position:absolute;inset:0;pointer-events:none;background:
+ linear-gradient(90deg,#020914 0%,#020914c9 34%,transparent 74%),
+ repeating-linear-gradient(90deg,transparent 0 35px,#66dfff08 36px 37px);
+}
+#home .home-hero-copy{position:relative;z-index:2}
+#home .home-hero-art{opacity:.98;filter:saturate(1.18) contrast(1.06)}
+#home .home-status-strip{position:relative;overflow:hidden}
+#home .home-status-strip:after{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,transparent,#65e6ff88,transparent)}
+#home .pro-card{transition:transform .16s ease,border-color .16s ease,filter .16s ease;isolation:isolate}
+#home .pro-card:active{transform:scale(.985);filter:brightness(1.12)}
+#home .pro-card .pro-card-art{isolation:isolate;background-size:cover!important}
+#home .pro-card .pro-card-art:before{z-index:0;background:
+ linear-gradient(180deg,#06111b12 0%,#06111b22 45%,#020914aa 100%),
+ repeating-linear-gradient(125deg,transparent 0 17px,#ffffff07 18px 19px),
+ radial-gradient(ellipse at 50% 55%,color-mix(in srgb,var(--accent) 19%,transparent),transparent 70%)}
+#home .pro-card-copy{padding-bottom:13px!important}
+#home .pro-card-arrow{z-index:2;background:#03101b99}
+#home .card-tags .pro-card-art{background-image:radial-gradient(ellipse at 50% 70%,#0787b7 0,transparent 48%),linear-gradient(145deg,#0c3e5c,#06111d 78%)!important}
+#home .card-areas .pro-card-art{background-image:repeating-linear-gradient(90deg,transparent 0 15px,#ffc35b19 16px 18px),radial-gradient(ellipse at 50% 70%,#85551c 0,transparent 50%),linear-gradient(145deg,#392a1b,#08131f 80%)!important}
+#home .card-faults .pro-card-art{background-image:radial-gradient(ellipse at 50% 55%,#a31d37 0,transparent 52%),linear-gradient(145deg,#431528,#0a111d 80%)!important}
+#home .card-ai .pro-card-art{background-image:radial-gradient(ellipse at 50% 70%,#7543c9 0,transparent 55%),linear-gradient(145deg,#30204d,#080f20 80%)!important}
+#home .card-diagnosis .pro-card-art{background-image:radial-gradient(ellipse at 50% 70%,#a87520 0,transparent 52%),linear-gradient(145deg,#183c49,#071522 80%)!important}
+#home .card-tests .pro-card-art{background-image:radial-gradient(ellipse at 50% 70%,#087e78 0,transparent 52%),linear-gradient(145deg,#103d43,#071522 80%)!important}
+#home .card-motors .pro-card-art{background-image:radial-gradient(ellipse at 50% 70%,#096a99 0,transparent 52%),linear-gradient(145deg,#12384d,#071522 80%)!important}
+#home .card-calc .pro-card-art{background-image:radial-gradient(ellipse at 50% 70%,#087e8f 0,transparent 52%),linear-gradient(145deg,#0b3b4b,#071522 80%)!important}
+#home .card-history .pro-card-art{background-image:radial-gradient(ellipse at 50% 70%,#8d581b 0,transparent 52%),linear-gradient(145deg,#3a2b1a,#071522 80%)!important}
+#home .card-data .pro-card-art{background-image:radial-gradient(ellipse at 50% 70%,#7040b6 0,transparent 52%),linear-gradient(145deg,#2a1b45,#071522 80%)!important}
+#home .home-report-card{position:relative;overflow:hidden}
+#home .home-report-card:after{content:"";position:absolute;right:0;top:0;bottom:0;width:38%;pointer-events:none;background:repeating-linear-gradient(90deg,transparent 0 13px,#4edbff12 14px 16px),linear-gradient(90deg,transparent,#0b527233)}
+#home .home-report-card>*{position:relative;z-index:1}
+@media(min-width:700px){
+ #home .home-hero-pro{min-height:340px!important;padding:32px!important}
+ #home .home-hero-copy{width:52%!important}
+ #home .home-pro-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:14px!important;margin-left:18px!important;margin-right:18px!important}
+ #home .pro-card{min-height:220px!important;border-radius:18px!important}
+ #home .pro-card .pro-card-art{height:120px!important;flex-basis:120px!important}
+ #home .pro-card-copy strong{font-size:15px!important}
+ #home .pro-card-copy small{font-size:12px!important}
+}
+@media(prefers-reduced-motion:reduce){#home .pro-card{transition:none!important}}
+
 /* Match the supplied industrial dashboard reference */
 #home.home-pro{padding-bottom:18px!important;background:radial-gradient(ellipse at 50% 0,#082c43 0,transparent 34%),linear-gradient(180deg,#020914,#03101b 70%,#020812)!important}
 #home .home-topbar{padding:9px 12px!important;gap:10px!important}
