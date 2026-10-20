@@ -869,6 +869,96 @@ body{background:radial-gradient(ellipse at 50% -10%,#0d3b5a 0%,#061525 34%,#0207
 .ai-suggestions button{border:1px solid #285d7a!important;background:linear-gradient(145deg,#0d2a3e,#071624)!important}
 @media(min-width:600px){.page:not(#home){padding-left:22px;padding-right:22px}.page:not(#home) .panel{padding:20px}.ai-chat-header{padding-left:22px;padding-right:22px}}
 @media(prefers-reduced-motion:reduce){.page:not(#home){animation:none}html{scroll-behavior:auto}}
+
+
+/* === Redesign unificado v1: inspirado nas telas de referência do Manutenção Pro === */
+:root{
+ --mp-bg:#020812;--mp-panel:#071725;--mp-panel-hi:#0b263b;
+ --mp-cyan:#25d4ff;--mp-blue:#087ff0;--mp-border:#236b91;
+ --mp-text:#f3f9ff;--mp-muted:#a7bfd0;--mp-ok:#32ed9b;--mp-warn:#ffbd52;
+}
+html,body{background:#020812!important;color:var(--mp-text)}
+body{max-width:900px;padding:0 0 calc(88px + env(safe-area-inset-bottom))!important;background:radial-gradient(ellipse at 50% 0,#0b2941 0,#030d19 48%,#020710 100%) fixed!important}
+button,input,select,textarea{font-family:inherit}
+.page:not(#home){padding:12px 13px 30px!important}
+.page:not(#home)>h2{font-size:23px!important;letter-spacing:-.45px!important;border:0!important;margin:10px 2px 14px!important}
+.page:not(#home)>h2:after{width:48px!important;margin-top:9px!important}
+.page:not(#home) .panel,.page:not(#home) .item,.page:not(#home) .diagram-card{
+ border:1px solid #1c5271!important;border-radius:15px!important;
+ background:linear-gradient(145deg,#0b2335 0%,#061522 65%,#04101b 100%)!important;
+ box-shadow:inset 0 1px #d7f6ff12,0 4px 0 #020811,0 8px 18px #0005!important
+}
+.page:not(#home) .panel{padding:14px!important}
+.page:not(#home) input,.page:not(#home) textarea,.page:not(#home) select{
+ min-height:43px;border:1px solid #286587!important;border-radius:11px!important;
+ background:#04121f!important;box-shadow:inset 0 1px 4px #0007!important
+}
+.page:not(#home) .btn{min-height:43px;border:1px solid #53d9ff!important;border-radius:11px!important;
+ background:linear-gradient(180deg,#20caff 0%,#087fe9 48%,#06458e 100%)!important;
+ box-shadow:inset 0 1px #ffffffa8,0 3px 0 #032c50,0 6px 12px #0006!important}
+.page:not(#home) .item{padding:12px!important}
+.page:not(#home) .search-result{border-radius:13px!important}
+#home{padding:0 0 18px!important}
+#home .home-topbar{position:sticky!important;top:0!important;z-index:10!important;padding:9px 12px!important;gap:9px!important;background:#030b16f5!important;border-bottom:1px solid #194a68!important;backdrop-filter:blur(18px)!important}
+#home .home-brandmark{flex:1!important;min-width:0!important}
+#home .home-brandmark b{letter-spacing:1px!important}
+#home .home-top-icon{width:42px!important;height:42px!important;border:1px solid #245d7b!important;border-radius:12px!important;background:linear-gradient(145deg,#0d2940,#04101c)!important;color:#a9efff!important;box-shadow:inset 0 1px #fff2,0 3px 0 #020914!important}
+#home .home-hero-pro{margin:0 10px 12px!important;min-height:280px!important;border:1px solid #287fa8!important;border-radius:0 0 18px 18px!important;padding:23px 16px 18px!important;background:linear-gradient(90deg,#03101df5 0%,#061b2be8 45%,#061b2b72 100%),url('https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1000&q=75') center/cover!important;box-shadow:inset 0 -20px 30px #020914,0 4px 0 #031321!important}
+#home .home-hero-copy{width:100%!important;max-width:470px!important}
+#home .home-hero-pro h1{font-size:clamp(27px,6vw,36px)!important;line-height:1.08!important;margin:10px 0!important}
+#home .home-hero-pro p{font-size:13px!important;max-width:280px!important;line-height:1.45!important}
+#home .home-hero-art{opacity:.32!important;right:-5%!important;width:48%!important}
+#home .home-hero-pro .hero-actions{display:flex!important;max-width:100%!important;flex-direction:column!important;align-items:flex-start!important;gap:9px!important}
+#home .home-hero-pro .hero-actions .btn{display:flex!important;align-items:center!important;justify-content:center!important;min-height:48px!important;width:min(100%,300px)!important;padding:11px 14px!important;border-radius:13px!important;font-size:14px!important}
+#home .home-hero-pro .hero-ai-cta{display:flex!important;background:linear-gradient(180deg,#102d43,#061725)!important;border-color:#277da4!important;box-shadow:inset 0 1px #fff2,0 3px 0 #020914!important}
+#home .home-status-strip{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:5px!important;margin:0 12px 19px!important;padding:10px 7px!important;border:1px solid #1e5878!important;border-radius:14px!important;background:linear-gradient(120deg,#0a2032,#04111e)!important;box-shadow:inset 0 1px #fff2,0 4px 0 #020914!important}
+#home .home-status-strip>div{min-width:0!important;gap:6px!important}
+#home .home-status-strip b{font-size:10px!important;display:block!important}
+#home .home-status-strip small{font-size:8px!important;line-height:1.25!important}
+#home .home-section-head{margin:0 14px 11px!important}
+#home .home-section-head h2{font-size:19px!important}
+#home .home-section-head .section-kicker{font-size:9px!important;letter-spacing:1.5px!important}
+#home .home-pro-grid{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:11px!important;margin:0 12px 17px!important}
+#home .pro-card{height:190px!important;min-height:190px!important;display:flex!important;flex-direction:column!important;position:relative!important;overflow:hidden!important;padding:0!important;border:1px solid #287ca5!important;border-radius:15px!important;background:#061522!important;box-shadow:inset 0 1px #fff3,0 0 10px #008dca20,0 4px 0 #052237,0 8px 13px #0007!important}
+#home .pro-card:before{content:"";position:absolute;z-index:1;inset:35% 0 0;background:linear-gradient(180deg,transparent,#03101bed 78%)!important;pointer-events:none}
+#home .pro-card-art{position:relative!important;z-index:0!important;width:100%!important;height:112px!important;min-height:112px!important;flex:0 0 112px!important;border:0!important;background-size:cover!important;background-position:center!important}
+#home .pro-card-art:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#020b1820,#020b184d)!important}
+#home .pro-card-copy{position:relative!important;z-index:2!important;display:flex!important;flex-direction:column!important;gap:5px!important;min-height:0!important;padding:8px 11px 25px!important;text-align:left!important}
+#home .pro-card-copy strong{font-size:13px!important;line-height:1.18!important;font-weight:850!important}
+#home .pro-card-copy small{font-size:10px!important;line-height:1.3!important;color:#c0d8e7!important}
+#home .pro-card-arrow{position:absolute!important;z-index:3!important;right:9px!important;bottom:8px!important;width:25px!important;height:25px!important;border:1px solid #3acfff!important;border-radius:50%!important;background:#061a2b!important;color:#55dfff!important;box-shadow:0 0 10px #00bfff3d!important}
+#home .card-faults{border-color:#9b3e4d!important}
+#home .card-areas,#home .card-history{border-color:#92713a!important}
+#home .card-ai,#home .card-data{border-color:#7653b8!important}
+#home .card-tests{border-color:#248e78!important}
+#home .home-report-card{display:flex!important;gap:12px!important;padding:14px!important;margin:0 12px 14px!important;min-height:88px!important;border:1px solid #246b91!important;border-radius:15px!important;background:linear-gradient(110deg,#0b2a40,#061321)!important;box-shadow:inset 0 1px #fff2,0 4px 0 #031321!important}
+#home .home-report-card b{font-size:14px!important}
+#home .home-report-card small{font-size:11px!important;line-height:1.4!important}
+#home .foot{padding:18px 10px!important;font-size:11px!important}
+.bottom{left:0!important;right:0!important;bottom:0!important;width:100%!important;max-width:900px!important;margin:0 auto!important;display:flex!important;gap:3px!important;padding:8px 6px calc(8px + env(safe-area-inset-bottom))!important;border:1px solid #1c4e6a!important;border-radius:17px 17px 0 0!important;background:linear-gradient(180deg,#071a2bf5,#020812fc)!important;box-shadow:0 -7px 24px #0007!important}
+.bottom button{min-width:0!important;min-height:49px!important;border-radius:11px!important;font-size:10px!important}
+.bottom button.on,.bottom button.active,.bottom button[aria-current=page]{background:linear-gradient(180deg,#0c3450,#06203a)!important;box-shadow:inset 0 0 0 1px #2386b7,0 0 15px #009fff20!important}
+#ai-chat.ai-chat-page{min-height:calc(100dvh - 88px)!important}
+.ai-chat-header{border-bottom:1px solid #205775!important}
+@media(min-width:600px){
+ body{padding-left:12px!important;padding-right:12px!important}
+ #home .home-pro-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+ #home .pro-card{height:205px!important}
+ #home .pro-card-art{height:125px!important;flex-basis:125px!important}
+ #home .pro-card-copy strong{font-size:14px!important}
+ #home .pro-card-copy small{font-size:11px!important}
+ #home .home-hero-pro{min-height:300px!important}
+ #home .home-hero-copy{max-width:520px!important}
+}
+@media(max-width:360px){
+ #home .home-pro-grid{gap:8px!important;margin-left:9px!important;margin-right:9px!important}
+ #home .pro-card{height:178px!important;min-height:178px!important}
+ #home .pro-card-art{height:98px!important;min-height:98px!important;flex-basis:98px!important}
+ #home .pro-card-copy{padding:7px 8px 24px!important}
+ #home .pro-card-copy strong{font-size:12px!important}
+ #home .pro-card-copy small{font-size:9px!important}
+}
+
 </style></head><body><div id="mp-splash" style="position:fixed;z-index:999;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;background:radial-gradient(ellipse at center,#0d3a5e,#020711 72%);transition:opacity .6s,visibility .6s"><div><div style="width:140px;height:140px;margin:0 auto 25px;border-radius:36px;display:grid;place-items:center;background:linear-gradient(145deg,#061e32,#020915);border:2px solid #79eaff;box-shadow:inset 0 2px 12px #5bdfff40,0 0 32px #00aaff77,0 9px 0 #031a2d;animation:mpPulse 1.8s infinite alternate"><svg viewBox="0 0 160 160" width="118" height="118" role="img" aria-label="Manutenção Pro Industrial"><defs><linearGradient id="gearMetal" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#effcff"/><stop offset=".35" stop-color="#48dfff"/><stop offset=".7" stop-color="#087ce6"/><stop offset="1" stop-color="#e9fbff"/></linearGradient><linearGradient id="boltGold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff79a"/><stop offset=".5" stop-color="#ffc126"/><stop offset="1" stop-color="#ff6c00"/></linearGradient></defs><circle cx="80" cy="80" r="62" fill="#04182a" stroke="url(#gearMetal)" stroke-width="8"/><circle cx="80" cy="80" r="48" fill="#07375d" stroke="#20bfff" stroke-width="3"/><path d="M88 22 48 84h27l-5 54 43-70H85z" fill="url(#boltGold)" stroke="#fff0a6" stroke-width="2" stroke-linejoin="round"/><path d="M80 7v10M80 143v10M7 80h10M143 80h10M28 28l8 8M124 124l8 8M132 28l-8 8M36 124l-8 8" stroke="url(#gearMetal)" stroke-width="7" stroke-linecap="round"/></svg></div><div style="font-weight:950;font-size:30px">Manutenção <span style="color:#25d2ff">Pro</span></div><div style="letter-spacing:7px;color:#59d8ff;font-size:12px;margin:8px 0 24px">INDUSTRIAL</div><div style="height:6px;background:#0d2a41;border:1px solid #1a638e;border-radius:99px;overflow:hidden"><i style="display:block;height:100%;background:linear-gradient(90deg,#056dff,#45e1ff);animation:mpLoad 1.7s ease-out forwards"></i></div><div style="color:#9ab8cc;font-size:12px;margin-top:10px">Carregando ferramentas técnicas…</div><div style="font-weight:800;margin-top:22px">Criado por Hely</div><div style="color:#9ab8cc;font-size:11px">Aos colegas: segurança e conhecimento em cada serviço.</div></div></div><style>@keyframes mpLoad{from{width:0}to{width:100%}}@keyframes mpPulse{from{transform:scale(.98);filter:brightness(.9)}to{transform:scale(1.03);filter:brightness(1.15)}}</style><header class="head"><div class="logo" aria-label="Manutenção Pro"><svg viewBox="0 0 100 100" width="44" height="44" aria-hidden="true"><circle cx="50" cy="50" r="36" fill="#062541" stroke="#72e7ff" stroke-width="5"/><path d="M56 13 29 54h20l-4 34 28-46H54z" fill="#ffc42f" stroke="#fff2a1" stroke-width="2" stroke-linejoin="round"/></svg></div><div><div class="brand">Manutenção <span>Pro</span></div><div class="sub">INDUSTRIAL</div></div></header><section id="home" class="page active home-pro">
 <header class="home-topbar">
 <button class="home-top-icon" onclick="go('data')" aria-label="Mais opções">☰</button>
