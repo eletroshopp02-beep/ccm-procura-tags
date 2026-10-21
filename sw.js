@@ -1,4 +1,4 @@
-const CACHE_NAME = 'manutencao-pro-original-functions-bw3d-v3';;;;;;
+const CACHE_NAME = 'manutencao-pro-original-base-3192-bw3d-v4';;;;;;
 const APP_SHELL = [
   './',
   './index.html',
