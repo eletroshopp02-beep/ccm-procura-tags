@@ -959,6 +959,45 @@ button,input,select,textarea{font-family:inherit}
  #home .pro-card-copy small{font-size:9px!important}
 }
 
+
+/* Redesign transversal inspirado no mockup aprovado: telas técnicas consistentes */
+:root{--app-bg:#020813;--app-panel:#071827;--app-card:#061522;--app-border:#20577a;--app-cyan:#27d5ff;--app-blue:#087ee8}
+html{background:#020813}
+body{background:radial-gradient(ellipse at 50% -12%,#0b3554 0%,#061626 36%,#020813 74%) fixed!important}
+.page:not(#home){padding:8px 12px 22px;min-width:0}
+.page:not(#home)>h1,.page:not(#home)>h2:first-child{font-size:clamp(24px,6vw,31px);line-height:1.15;letter-spacing:-.55px;margin:12px 0 18px}
+.page:not(#home) h2{font-size:21px;line-height:1.2}
+.page:not(#home) h3{font-size:17px;line-height:1.25}
+.page:not(#home) .panel,.page:not(#home) .item,.page:not(#home) .result-box,.page:not(#home) .diagram-card{border:1px solid #245d7b;border-radius:17px;background:linear-gradient(145deg,#0b2538,#04111e 78%);box-shadow:inset 0 1px #dffaff17,0 4px 0 #020812,0 8px 18px #0005}
+.page:not(#home) .panel{padding:15px;margin:12px 0}
+.page:not(#home) .item{padding:13px;margin:9px 0}
+.page:not(#home) .btn,.page:not(#home) button:not(.chip):not(.clear-search):not(.home-top-icon){border-radius:13px}
+.page:not(#home) .btn{min-height:44px}
+.page:not(#home) input,.page:not(#home) textarea,.page:not(#home) select{background:linear-gradient(180deg,#04101c,#061a2a);border:1px solid #2b6587;border-radius:12px;color:#f1faff;box-shadow:inset 0 1px #d8f7ff0d}
+.page:not(#home) label{color:#91e4ff;font-weight:750}
+.page:not(#home) .muted,.page:not(#home) .helper,.page:not(#home) small{line-height:1.45}
+.page:not(#home) .search-results{gap:8px}
+.page:not(#home) .search-result{border-radius:13px;background:linear-gradient(120deg,#0a2538,#04111d);border-color:#245d7b}
+.page:not(#home) .filter-chips{gap:6px}
+.page:not(#home) .chip{border:1px solid #2a688b;background:#061827;color:#c4e6f7;border-radius:999px}
+.page:not(#home) .chip.active{background:linear-gradient(180deg,#20bfff,#0759c0);border-color:#72e4ff;color:white;box-shadow:0 0 12px #009dff38}
+.page:not(#home) .result-status,.page:not(#home) .result-grid>div{border-radius:12px}
+.page:not(#home) .result-grid>div{background:#04111d;border-color:#1d4d69}
+.page:not(#home) .motor-diagram{filter:drop-shadow(0 0 10px #008bff22)}
+/* Chat da IA: cabeçalho, bolhas e campo de mensagem com leitura de mensageiro */
+#ai-chat{background:transparent}
+#ai-chat .ai-chat-header{position:sticky;top:0;z-index:3;padding:12px 10px;background:#030d18f2;border-bottom:1px solid #1f5a7a;backdrop-filter:blur(16px)}
+#ai-chat .chat-message,#ai-chat .message,#ai-chat .ai-message{border-radius:16px}
+#ai-chat .chat-input-wrap,#ai-chat .chat-composer{background:#061827;border:1px solid #28678a;border-radius:22px;padding:7px;box-shadow:inset 0 1px #fff1,0 4px 14px #0005}
+#ai-chat textarea{border:0!important;background:transparent!important;box-shadow:none!important}
+#ai-chat .btn{border-radius:50%;min-width:44px}
+.note{border-radius:0 12px 12px 0}
+.bottom{backdrop-filter:blur(18px)}
+@media(min-width:600px){
+ .page:not(#home){padding:12px 18px 26px}
+ .page:not(#home) .panel{padding:20px}
+}
+
 </style></head><body><div id="mp-splash" style="position:fixed;z-index:999;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;background:radial-gradient(ellipse at center,#0d3a5e,#020711 72%);transition:opacity .6s,visibility .6s"><div><div style="width:140px;height:140px;margin:0 auto 25px;border-radius:36px;display:grid;place-items:center;background:linear-gradient(145deg,#061e32,#020915);border:2px solid #79eaff;box-shadow:inset 0 2px 12px #5bdfff40,0 0 32px #00aaff77,0 9px 0 #031a2d;animation:mpPulse 1.8s infinite alternate"><svg viewBox="0 0 160 160" width="118" height="118" role="img" aria-label="Manutenção Pro Industrial"><defs><linearGradient id="gearMetal" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#effcff"/><stop offset=".35" stop-color="#48dfff"/><stop offset=".7" stop-color="#087ce6"/><stop offset="1" stop-color="#e9fbff"/></linearGradient><linearGradient id="boltGold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff79a"/><stop offset=".5" stop-color="#ffc126"/><stop offset="1" stop-color="#ff6c00"/></linearGradient></defs><circle cx="80" cy="80" r="62" fill="#04182a" stroke="url(#gearMetal)" stroke-width="8"/><circle cx="80" cy="80" r="48" fill="#07375d" stroke="#20bfff" stroke-width="3"/><path d="M88 22 48 84h27l-5 54 43-70H85z" fill="url(#boltGold)" stroke="#fff0a6" stroke-width="2" stroke-linejoin="round"/><path d="M80 7v10M80 143v10M7 80h10M143 80h10M28 28l8 8M124 124l8 8M132 28l-8 8M36 124l-8 8" stroke="url(#gearMetal)" stroke-width="7" stroke-linecap="round"/></svg></div><div style="font-weight:950;font-size:30px">Manutenção <span style="color:#25d2ff">Pro</span></div><div style="letter-spacing:7px;color:#59d8ff;font-size:12px;margin:8px 0 24px">INDUSTRIAL</div><div style="height:6px;background:#0d2a41;border:1px solid #1a638e;border-radius:99px;overflow:hidden"><i style="display:block;height:100%;background:linear-gradient(90deg,#056dff,#45e1ff);animation:mpLoad 1.7s ease-out forwards"></i></div><div style="color:#9ab8cc;font-size:12px;margin-top:10px">Carregando ferramentas técnicas…</div><div style="font-weight:800;margin-top:22px">Criado por Hely</div><div style="color:#9ab8cc;font-size:11px">Aos colegas: segurança e conhecimento em cada serviço.</div></div></div><style>@keyframes mpLoad{from{width:0}to{width:100%}}@keyframes mpPulse{from{transform:scale(.98);filter:brightness(.9)}to{transform:scale(1.03);filter:brightness(1.15)}}</style><header class="head"><div class="logo" aria-label="Manutenção Pro"><svg viewBox="0 0 100 100" width="44" height="44" aria-hidden="true"><circle cx="50" cy="50" r="36" fill="#062541" stroke="#72e7ff" stroke-width="5"/><path d="M56 13 29 54h20l-4 34 28-46H54z" fill="#ffc42f" stroke="#fff2a1" stroke-width="2" stroke-linejoin="round"/></svg></div><div><div class="brand">Manutenção <span>Pro</span></div><div class="sub">INDUSTRIAL</div></div></header><section id="home" class="page active home-pro">
 <header class="home-topbar">
 <button class="home-top-icon" onclick="go('data')" aria-label="Mais opções">☰</button>
