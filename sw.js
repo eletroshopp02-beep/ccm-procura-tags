@@ -1,4 +1,4 @@
-const CACHE_NAME = 'manutencao-pro-v2-65';
+const CACHE_NAME = 'manutencao-pro-v2-66';
 const APP_SHELL = [
   './',
   './index.html',
