@@ -998,6 +998,113 @@ body{background:radial-gradient(ellipse at 50% -12%,#0b3554 0%,#061626 36%,#0208
  .page:not(#home) .panel{padding:20px}
 }
 
+
+/* MANUTENÇÃO PRO INDUSTRIAL — redesign global baseado na referência aprovada */
+:root{
+ --b:#08baff;--app-bg:#020813;--app-panel:#061523;--app-card:#071a2b;
+ --app-border:#14547a;--app-cyan:#24d9ff;--app-blue:#087bff;
+ --app-text:#eef8ff;--app-muted:#9eb9cc;--app-green:#26e6a1;--app-red:#ff5264;--app-amber:#ffb536;
+}
+html{background:#020813!important;color-scheme:dark}
+body{max-width:1100px!important;background:radial-gradient(ellipse at 50% -10%,#0b2b48 0%,#04111f 43%,#020813 78%) fixed!important;color:#eef8ff!important}
+button,input,textarea,select{font-family:inherit}
+button{transition:transform .14s ease,filter .14s ease,box-shadow .14s ease}
+button:active{filter:brightness(1.14)}
+.page:not(#home){padding:10px 12px 26px!important}
+.page:not(#home)>h1,.page:not(#home)>h2:first-child{font-size:clamp(24px,5.7vw,32px)!important;font-weight:850!important;letter-spacing:-.65px!important;line-height:1.12!important;margin:12px 0 18px!important;color:#f4fbff!important}
+.page:not(#home) h2{font-size:20px!important;font-weight:800!important;letter-spacing:-.25px}
+.page:not(#home) h3{font-size:16px!important;font-weight:800!important}
+.page:not(#home) .panel,.page:not(#home) .item,.page:not(#home) .result-box,.page:not(#home) .diagram-card,.page:not(#home) .card{
+ background:linear-gradient(145deg,#0a2234 0%,#061522 58%,#04101b 100%)!important;
+ border:1px solid #185579!important;border-radius:15px!important;
+ box-shadow:inset 0 1px #d9f7ff12,0 4px 0 #010812,0 8px 18px #0004!important;
+}
+.page:not(#home) .panel{padding:14px!important;margin:12px 0!important}
+.page:not(#home) .item{padding:12px!important;margin:8px 0!important}
+.page:not(#home) .btn,.page:not(#home) button:not(.chip):not(.clear-search):not(.home-top-icon){
+ border-radius:11px!important;font-weight:750!important;letter-spacing:.05px;
+}
+.page:not(#home) .btn{min-height:44px!important;background:linear-gradient(180deg,#149dff,#0864dc 70%,#064bb4)!important;border:1px solid #36c9ff!important;box-shadow:inset 0 1px #e6fbff88,0 3px 0 #06335f,0 6px 14px #0004!important}
+.page:not(#home) input,.page:not(#home) textarea,.page:not(#home) select{
+ width:100%;min-height:43px;background:#03111e!important;border:1px solid #225b7d!important;
+ border-radius:10px!important;color:#f2faff!important;box-shadow:inset 0 1px #e7faff0a!important;
+}
+.page:not(#home) textarea{line-height:1.45}
+.page:not(#home) label{color:#7ce1ff!important;font-weight:750!important}
+.page:not(#home) .muted,.page:not(#home) .helper,.page:not(#home) small{line-height:1.42}
+.page:not(#home) .search-wrap{background:#041321;border:1px solid #1c5d80;border-radius:13px;padding:4px}
+.page:not(#home) .search-results{gap:8px}
+.page:not(#home) .search-result{border-radius:12px!important;background:linear-gradient(110deg,#0b2639,#04111e)!important;border-color:#1d5676!important}
+.page:not(#home) .filter-chips{gap:6px}
+.page:not(#home) .chip{border:1px solid #245b7a!important;background:#061827!important;color:#c9e9fa!important;border-radius:999px!important}
+.page:not(#home) .chip.active{background:linear-gradient(180deg,#16baff,#0757c3)!important;border-color:#6de4ff!important;color:white!important;box-shadow:0 0 12px #009dff32!important}
+.page:not(#home) .result-grid>div{background:#04111d!important;border-color:#1d4d69!important;border-radius:11px!important}
+.page:not(#home) .note{border-left:4px solid #ffbd44!important;background:#2a2111!important;color:#ffe6b0!important;border-radius:0 10px 10px 0!important}
+.page:not(#home) .motor-diagram{filter:drop-shadow(0 0 10px #008bff22)}
+/* Dashboard inspirado nos cartões de navegação da referência */
+#home .home-topbar{background:linear-gradient(180deg,#061625f5,#04101cf2)!important;border:1px solid #164b69!important;border-radius:15px!important;padding:8px!important;box-shadow:0 5px 16px #0004!important}
+#home .home-brandmark{letter-spacing:1px!important}
+#home .home-brand-symbol{color:#21d8ff!important;text-shadow:0 0 15px #00aaffaa!important}
+#home .home-top-icon{background:linear-gradient(145deg,#0b263a,#04111d)!important;border:1px solid #1a5c80!important;border-radius:12px!important;box-shadow:inset 0 1px #fff1!important}
+#home .home-hero-pro{border:1px solid #247eaa!important;border-radius:17px!important;background:linear-gradient(110deg,#071b2bfa,#061523e8)!important;box-shadow:inset 0 1px #d8faff22,0 5px 0 #020a12,0 12px 25px #0004!important;overflow:hidden}
+#home .home-hero-copy h1{font-size:clamp(27px,6.8vw,38px)!important;line-height:1.08!important;letter-spacing:-.8px!important}
+#home .home-hero-copy p{color:#b8d0e1!important}
+#home .hero-actions{display:flex!important;flex-wrap:wrap!important;gap:10px!important}
+#home .hero-actions .btn{min-height:52px!important;border-radius:13px!important}
+#home .hero-secondary{background:linear-gradient(180deg,#16baff,#0765e2 72%,#0647a9)!important;border:1px solid #69e5ff!important;box-shadow:inset 0 1px #fff9,0 3px 0 #07365d,0 0 16px #009dff33!important}
+#home .hero-ai-cta{background:linear-gradient(145deg,#112b4d,#071a34)!important;border:1px solid #7059d9!important;box-shadow:inset 0 1px #fff2,0 3px 0 #21164c!important}
+#home .home-status-strip{border:1px solid #1d5879!important;border-radius:13px!important;background:linear-gradient(100deg,#071c2c,#061321)!important;box-shadow:inset 0 1px #fff1!important}
+#home .home-section-head{margin-top:20px!important}
+#home .home-section-head h2{font-size:20px!important;font-weight:850!important;letter-spacing:-.35px!important}
+#home .section-kicker{color:#59dfff!important;letter-spacing:1.4px!important}
+#home .home-pro-grid{gap:10px!important;margin-left:0!important;margin-right:0!important}
+#home .pro-card{position:relative!important;overflow:hidden!important;display:flex!important;flex-direction:column!important;justify-content:flex-start!important;min-width:0!important;height:194px!important;min-height:194px!important;padding:0!important;border:1px solid #1c709b!important;border-radius:15px!important;background:linear-gradient(150deg,#0b2a40,#061523 70%)!important;box-shadow:inset 0 1px #e2faff2b,0 4px 0 #03101b,0 8px 14px #0005!important;text-align:left!important}
+#home .pro-card:before{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(135deg,#26cfff0c,transparent 55%,#0005);z-index:1}
+#home .pro-card-art{position:relative!important;display:flex!important;align-items:center!important;justify-content:center!important;flex:0 0 105px!important;height:105px!important;min-height:105px!important;width:100%!important;overflow:hidden!important;background:radial-gradient(ellipse at 50% 65%,#0a5a82 0%,#08243a 45%,#04101b 100%)!important;border-bottom:1px solid #1b5578!important}
+#home .pro-card-art:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,#061522e8 100%);pointer-events:none}
+#home .pro-card-copy{position:relative!important;z-index:2!important;display:flex!important;flex-direction:column!important;gap:5px!important;padding:9px 10px 27px!important;min-width:0!important}
+#home .pro-card-copy strong{font-size:13px!important;line-height:1.2!important;font-weight:850!important;color:#f2f9ff!important}
+#home .pro-card-copy small{font-size:10px!important;line-height:1.3!important;color:#b9d2e3!important}
+#home .pro-card-arrow{right:8px!important;bottom:7px!important;width:22px!important;height:22px!important;display:grid!important;place-items:center!important;border:1px solid #28cfff!important;border-radius:50%!important;background:#041827!important;color:#4ce0ff!important;font-size:20px!important;box-shadow:0 0 12px #009dff2b!important}
+#home .card-faults{border-color:#a03e50!important}#home .card-faults .pro-card-art{background:radial-gradient(ellipse at 50% 40%,#6b1729,#1a101d 65%,#06101a)!important;border-color:#763246!important}
+#home .card-areas,#home .card-history{border-color:#967034!important}#home .card-areas .pro-card-art,#home .card-history .pro-card-art{background:radial-gradient(ellipse at 50% 40%,#60451b,#1a1a1d 65%,#06101a)!important}
+#home .card-ai,#home .card-data{border-color:#7050b4!important}#home .card-ai .pro-card-art,#home .card-data .pro-card-art{background:radial-gradient(ellipse at 50% 40%,#35245e,#15162b 65%,#06101a)!important}
+#home .card-tests{border-color:#248f79!important}#home .card-tests .pro-card-art{background:radial-gradient(ellipse at 50% 40%,#0c594e,#0b232b 65%,#06101a)!important}
+#home .home-report-card{display:flex!important;align-items:center!important;gap:12px!important;padding:14px!important;margin:14px 0!important;min-height:82px!important;border:1px solid #1d668b!important;border-radius:15px!important;background:linear-gradient(105deg,#0a2a40,#061523)!important;box-shadow:inset 0 1px #fff2,0 4px 0 #020b13!important;text-align:left!important}
+#home .report-icon{color:#2bdcff!important;text-shadow:0 0 14px #009dff88!important}
+#home .home-report-card b{font-size:14px!important}#home .home-report-card small{font-size:11px!important;line-height:1.4!important;color:#b9d2e3!important}
+#home .foot{padding:15px 10px!important;color:#7190a7!important;font-size:10px!important}
+/* Chat IA no padrão mensageiro, mantendo os controles existentes */
+#ai-chat{background:transparent!important}
+#ai-chat.ai-chat-page{min-height:calc(100dvh - 82px)!important}
+#ai-chat .ai-chat-header{position:sticky!important;top:0!important;z-index:5!important;padding:12px 10px!important;background:#030d18f5!important;border-bottom:1px solid #1c5b7c!important;backdrop-filter:blur(16px)!important}
+#ai-chat .chat-message,#ai-chat .message,#ai-chat .ai-message{border-radius:16px!important}
+#ai-chat .chat-input-wrap,#ai-chat .chat-composer{background:#061827!important;border:1px solid #28678a!important;border-radius:22px!important;padding:7px!important;box-shadow:inset 0 1px #fff1,0 4px 14px #0005!important}
+#ai-chat textarea{border:0!important;background:transparent!important;box-shadow:none!important}
+#ai-chat .btn{border-radius:50%!important;min-width:44px!important}
+.bottom{left:0!important;right:0!important;bottom:0!important;width:100%!important;max-width:900px!important;margin:0 auto!important;display:flex!important;gap:3px!important;padding:7px 6px calc(7px + env(safe-area-inset-bottom))!important;border:1px solid #174e6c!important;border-radius:17px 17px 0 0!important;background:linear-gradient(180deg,#071a2bf5,#020812fc)!important;box-shadow:0 -7px 24px #0007!important;backdrop-filter:blur(18px)!important}
+.bottom button{min-width:0!important;min-height:48px!important;border-radius:11px!important;font-size:10px!important}
+.bottom button.on,.bottom button.active,.bottom button[aria-current=page]{background:linear-gradient(180deg,#0c3450,#06203a)!important;box-shadow:inset 0 0 0 1px #2386b7,0 0 15px #009fff20!important}
+@media(min-width:600px){
+ body{padding-left:18px!important;padding-right:18px!important}
+ #home .home-pro-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+ #home .pro-card{height:215px!important;min-height:215px!important}
+ #home .pro-card-art{height:125px!important;flex-basis:125px!important}
+ #home .pro-card-copy strong{font-size:14px!important}
+ #home .pro-card-copy small{font-size:11px!important}
+ #home .home-hero-pro{min-height:300px!important}
+ .page:not(#home){padding:12px 18px 26px!important}
+ .page:not(#home) .panel{padding:20px!important}
+}
+@media(max-width:360px){
+ #home .home-pro-grid{gap:8px!important}
+ #home .pro-card{height:178px!important;min-height:178px!important}
+ #home .pro-card-art{height:98px!important;min-height:98px!important;flex-basis:98px!important}
+ #home .pro-card-copy{padding:7px 8px 24px!important}
+ #home .pro-card-copy strong{font-size:12px!important}
+ #home .pro-card-copy small{font-size:9px!important}
+}
+
 </style></head><body><div id="mp-splash" style="position:fixed;z-index:999;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;background:radial-gradient(ellipse at center,#0d3a5e,#020711 72%);transition:opacity .6s,visibility .6s"><div><div style="width:140px;height:140px;margin:0 auto 25px;border-radius:36px;display:grid;place-items:center;background:linear-gradient(145deg,#061e32,#020915);border:2px solid #79eaff;box-shadow:inset 0 2px 12px #5bdfff40,0 0 32px #00aaff77,0 9px 0 #031a2d;animation:mpPulse 1.8s infinite alternate"><svg viewBox="0 0 160 160" width="118" height="118" role="img" aria-label="Manutenção Pro Industrial"><defs><linearGradient id="gearMetal" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#effcff"/><stop offset=".35" stop-color="#48dfff"/><stop offset=".7" stop-color="#087ce6"/><stop offset="1" stop-color="#e9fbff"/></linearGradient><linearGradient id="boltGold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff79a"/><stop offset=".5" stop-color="#ffc126"/><stop offset="1" stop-color="#ff6c00"/></linearGradient></defs><circle cx="80" cy="80" r="62" fill="#04182a" stroke="url(#gearMetal)" stroke-width="8"/><circle cx="80" cy="80" r="48" fill="#07375d" stroke="#20bfff" stroke-width="3"/><path d="M88 22 48 84h27l-5 54 43-70H85z" fill="url(#boltGold)" stroke="#fff0a6" stroke-width="2" stroke-linejoin="round"/><path d="M80 7v10M80 143v10M7 80h10M143 80h10M28 28l8 8M124 124l8 8M132 28l-8 8M36 124l-8 8" stroke="url(#gearMetal)" stroke-width="7" stroke-linecap="round"/></svg></div><div style="font-weight:950;font-size:30px">Manutenção <span style="color:#25d2ff">Pro</span></div><div style="letter-spacing:7px;color:#59d8ff;font-size:12px;margin:8px 0 24px">INDUSTRIAL</div><div style="height:6px;background:#0d2a41;border:1px solid #1a638e;border-radius:99px;overflow:hidden"><i style="display:block;height:100%;background:linear-gradient(90deg,#056dff,#45e1ff);animation:mpLoad 1.7s ease-out forwards"></i></div><div style="color:#9ab8cc;font-size:12px;margin-top:10px">Carregando ferramentas técnicas…</div><div style="font-weight:800;margin-top:22px">Criado por Hely</div><div style="color:#9ab8cc;font-size:11px">Aos colegas: segurança e conhecimento em cada serviço.</div></div></div><style>@keyframes mpLoad{from{width:0}to{width:100%}}@keyframes mpPulse{from{transform:scale(.98);filter:brightness(.9)}to{transform:scale(1.03);filter:brightness(1.15)}}</style><header class="head"><div class="logo" aria-label="Manutenção Pro"><svg viewBox="0 0 100 100" width="44" height="44" aria-hidden="true"><circle cx="50" cy="50" r="36" fill="#062541" stroke="#72e7ff" stroke-width="5"/><path d="M56 13 29 54h20l-4 34 28-46H54z" fill="#ffc42f" stroke="#fff2a1" stroke-width="2" stroke-linejoin="round"/></svg></div><div><div class="brand">Manutenção <span>Pro</span></div><div class="sub">INDUSTRIAL</div></div></header><section id="home" class="page active home-pro">
 <header class="home-topbar">
 <button class="home-top-icon" onclick="go('data')" aria-label="Mais opções">☰</button>
