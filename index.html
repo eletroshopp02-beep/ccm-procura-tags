@@ -16,6 +16,47 @@
 @media(min-width:620px){body{padding-left:22px;padding-right:22px}.hero{padding:28px}.grid.three{gap:12px}.tile{min-height:135px;padding:16px}.panel{padding:19px}.bottom{padding-left:calc((100% - 880px)/2 + 12px);padding-right:calc((100% - 880px)/2 + 12px)}}
 @media(max-width:380px){body{padding-left:9px;padding-right:9px}.panel{padding:12px}.hero{padding:17px 13px}.tile{min-height:100px;padding:10px}.tile strong{font-size:12px}.grid.three{gap:6px}.grid.three .tile{padding:8px 5px}.grid.three .tile strong{font-size:10px}.top{gap:8px}.brand{font-size:15px}.top-actions{gap:5px}.icon-btn{width:36px;height:36px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+/* Smart industrial TAG search */
+.tag-search-hero{padding:15px;border:1px solid #3b4b5a;border-radius:18px;background:radial-gradient(ellipse at 5% 0%,#263847 0%,transparent 58%),linear-gradient(145deg,#151e27,#080d13 82%);box-shadow:inset 0 1px 0 #ffffff18,0 7px 0 #030507;margin-bottom:15px}
+.tag-search-heading{display:flex;align-items:center;gap:11px;margin:0 0 14px}
+.search-orb{display:grid;place-items:center;flex:0 0 42px;height:42px;border:1px solid #687b8b;border-radius:13px;background:linear-gradient(145deg,#263644,#0a1119);box-shadow:inset 0 1px 0 #fff2,0 3px 0 #030609;font-size:27px;color:#f3f7fa}
+.tag-search-heading strong{display:block;font-size:15px;letter-spacing:.1px;color:#f7f9fc}
+.tag-search-heading small{display:block;margin-top:4px;color:#9baaba;font-size:11px}
+.tag-searchbox{min-height:52px!important;border-radius:15px!important;border-color:#8b9baa!important;background:#05090e!important;box-shadow:inset 0 3px 8px #000b,0 0 0 2px #ffffff06,0 3px 0 #030507!important}
+.tag-searchbox>span{font-size:23px;color:#f2f6fa}
+.tag-searchbox input{min-width:0;font-size:14px!important;font-weight:600;letter-spacing:.1px}
+.tag-searchbox input::placeholder{font-size:12px;color:#788797}
+.tag-searchbox button{width:30px;height:30px;border:1px solid #44515e;border-radius:10px;background:#1b2530;color:#fff;font-size:19px}
+.search-hints{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}
+.search-hints span{font-size:10px;color:#b6c2ce;border:1px solid #394754;border-radius:7px;padding:5px 7px;background:#0b1219}
+.tag-filter-heading{display:flex;justify-content:space-between;align-items:center;gap:8px;margin:18px 2px 7px;font-size:10px;font-weight:850;letter-spacing:1px;color:#cbd4de}
+.tag-filter-heading span+span{font-size:9px;color:#8493a3;letter-spacing:.3px;text-align:right}
+.tag-chips{gap:7px!important;margin:0 0 12px!important}
+.tag-chips .chip{min-height:34px;padding:8px 12px!important;border-radius:10px!important;font-size:11px!important;box-shadow:0 2px 0 #030507}
+.tag-chips .chip.active{background:linear-gradient(180deg,#f8fafc,#cbd4de)!important;color:#0b1117!important;border-color:#fff!important}
+.tag-results-summary{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:14px 2px 8px;color:#f4f7fa;font-size:12px;font-weight:750}
+.tag-results-summary #tag-results-caption{font-size:10px;font-weight:500;color:#8998a7;text-align:right}
+.tag-search-empty{display:flex;align-items:center;flex-direction:column;text-align:center;padding:25px 14px 20px;border:1px dashed #3a4957;border-radius:15px;background:linear-gradient(145deg,#111a23,#090e14)}
+.empty-search-icon{display:grid;place-items:center;width:54px;height:54px;margin-bottom:12px;border:1px solid #526475;border-radius:17px;background:linear-gradient(145deg,#263542,#0a1118);box-shadow:inset 0 1px 0 #fff2,0 4px 0 #030507;font-size:32px;color:#f3f6f9}
+.tag-search-empty strong{font-size:14px;color:#edf2f7}
+.tag-search-empty p{max-width:270px;margin:7px 0 12px;color:#99a7b5;font-size:11px;line-height:1.55}
+.search-examples{display:flex;flex-wrap:wrap;justify-content:center;gap:6px}
+.search-examples span{padding:5px 8px;border:1px solid #394754;border-radius:7px;background:#151e27;color:#aab7c4;font-size:10px}
+.tag-result-card{position:relative;display:grid!important;grid-template-columns:44px minmax(0,1fr) 20px;align-items:center;gap:11px;width:100%;padding:13px!important;margin:9px 0!important;border:1px solid #3d4b59!important;border-radius:15px!important;background:linear-gradient(145deg,#19232d,#0b1118 80%)!important;box-shadow:inset 0 1px 0 #ffffff13,0 4px 0 #030507!important;transition:transform .15s,border-color .15s}
+.tag-result-card:active{transform:translateY(2px);box-shadow:inset 0 1px 0 #ffffff10,0 2px 0 #030507!important}
+.tag-result-icon{display:grid;place-items:center;width:42px;height:46px;border:1px solid #526272;border-radius:11px;background:linear-gradient(145deg,#2c3b49,#101821);box-shadow:inset 0 1px 0 #ffffff18,0 2px 0 #030507;font-size:19px;color:#f5f7fa}
+.tag-result-main{min-width:0}
+.tag-result-code{display:block;overflow-wrap:anywhere;color:#fff;font-size:14px;font-weight:850;letter-spacing:.2px}
+.tag-result-name{display:-webkit-box;overflow:hidden;margin-top:4px;color:#c5cfda;font-size:11px;line-height:1.4;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.tag-result-meta{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px}
+.tag-result-meta span{max-width:100%;overflow-wrap:anywhere;padding:4px 6px;border:1px solid #3d4b58;border-radius:6px;background:#0c131a;color:#b9c5d0;font-size:9px}
+.tag-result-arrow{font-size:22px;color:#e7edf3}
+.tag-result-card mark{background:#e9eef3;color:#10151a;border-radius:3px;padding:0 1px}
+.tag-result-card .tag-result-code mark{font-weight:900}
+.tag-more-results{padding:11px;text-align:center;color:#aebac6;font-size:11px;border:1px solid #344351;border-radius:11px;background:#0d141b}
+@media(min-width:560px){.tag-results-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px 10px}}
+
 </style>
 </head>
 <body>
@@ -43,7 +84,7 @@
 </section>
 <section id="tags" class="page">
   <div class="page-title"><button class="back" onclick="go('home')">‹</button><h2>Busca de TAGs</h2><span class="muted" id="tags-result-count"></span></div>
-  <div class="panel"><p class="muted">Digite a TAG completa, nome do equipamento, área, CCM ou os últimos quatro dígitos do código.</p><div class="searchbox"><span>⌕</span><input id="tag-query" placeholder="Ex.: 4242, motor, CCM..." oninput="renderTags()"><button onclick="document.getElementById('tag-query').value='';renderTags()" aria-label="Limpar">×</button></div><div class="chips" id="tag-filters"><button class="chip active" data-filter="all" onclick="setTagFilter('all',this)">Todos</button><button class="chip" data-filter="area" onclick="setTagFilter('area',this)">Área</button><button class="chip" data-filter="ccm" onclick="setTagFilter('ccm',this)">CCM</button><button class="chip" data-filter="description" onclick="setTagFilter('description',this)">Descrição</button></div><div id="tag-results"></div></div>
+  <div class="tag-search-hero"><div class="tag-search-heading"><span class="search-orb">⌕</span><div><strong>Localizar equipamento</strong><small>Busca inteligente no catálogo industrial</small></div></div><div class="searchbox tag-searchbox"><span>⌕</span><input id="tag-query" autocomplete="off" enterkeyhint="search" placeholder="TAG, motor, área, CCM ou final 4242" oninput="renderTags()"><button id="tag-clear" onclick="clearTagSearch()" aria-label="Limpar pesquisa" title="Limpar">×</button></div><div class="search-hints"><span>⌕ Código completo</span><span>▦ Últimos 4 dígitos</span><span>⌖ Área e CCM</span></div></div><div class="tag-filter-heading"><span>FILTRAR RESULTADOS</span><span id="tag-search-mode">CATÁLOGO COMPLETO</span></div><div class="chips tag-chips" id="tag-filters"><button class="chip active" data-filter="all" onclick="setTagFilter('all',this)">Todos</button><button class="chip" data-filter="area" onclick="setTagFilter('area',this)">Área</button><button class="chip" data-filter="ccm" onclick="setTagFilter('ccm',this)">CCM / Painel</button><button class="chip" data-filter="description" onclick="setTagFilter('description',this)">Equipamento</button></div><div class="tag-results-summary"><span id="tags-result-count">Pesquise para começar</span><span id="tag-results-caption">Resultados ordenados por relevância</span></div><div id="tag-results"><div class="tag-search-empty"><span class="empty-search-icon">⌕</span><strong>Encontre qualquer equipamento</strong><p>Digite a TAG, uma palavra da descrição ou os últimos quatro dígitos.</p><div class="search-examples"><span>Ex.: <b>4242</b></span><span><b>motor</b></span><span><b>CCM-01</b></span></div></div></div>
   <div class="panel"><h3>Adicionar TAG para compartilhar</h3><p class="muted">Cadastre somente informações técnicas autorizadas. A nova TAG é salva localmente e pode ser enviada ao catálogo compartilhado ao sincronizar.</p><div class="row"><div class="field"><label for="new-tag">TAG *</label><input id="new-tag" placeholder="Código exato"></div><div class="field"><label for="new-name">Descrição do equipamento</label><input id="new-name" placeholder="Nome / função"></div></div><div class="row"><div class="field"><label for="new-area">Área</label><input id="new-area" placeholder="Área industrial"></div><div class="field"><label for="new-ccm">CCM / painel</label><input id="new-ccm" placeholder="CCM-01"></div></div><button class="btn primary full" onclick="addTag()">＋ Salvar TAG</button></div>
 </section>
 <section id="tag-detail" class="page"><div class="page-title"><button class="back" onclick="go('tags')">‹</button><h2>Detalhes da TAG</h2><button class="icon-btn" onclick="shareTag()">↗</button></div><div id="tag-detail-body"></div><div class="grid"><button class="tile" onclick="go('tests')"><span class="ico">☷</span><strong>Registrar ensaio</strong></button><button class="tile" onclick="go('assistant')"><span class="ico">✧</span><strong>Consultar assistência</strong></button></div></section>
