@@ -69,6 +69,27 @@
 .tag-match-type{display:inline-block;margin-top:7px;color:#aebbc7;font-size:9px;letter-spacing:.2px}
 .tag-result-card:hover{border-color:#b5c2ce!important}
 
+
+/* TAG result cards: readable industrial asset records */
+.tag-results-list{display:flex;flex-direction:column;gap:10px;min-width:0}
+.tag-result-card{display:grid!important;grid-template-columns:42px minmax(0,1fr)!important;align-items:start!important;gap:11px!important;width:100%;min-width:0;padding:13px!important;margin:0!important;text-align:left!important;border:1px solid #455362!important;border-radius:15px!important;background:linear-gradient(145deg,#1b2631 0%,#111821 62%,#0b1016 100%)!important;box-shadow:inset 0 1px 0 #ffffff12,0 3px 0 #030507!important;white-space:normal!important;overflow:hidden}
+.tag-result-card:active{transform:translateY(2px);box-shadow:inset 0 1px 0 #ffffff10,0 1px 0 #030507!important}
+.tag-result-icon{display:grid!important;place-items:center;width:40px;height:42px;min-width:40px;border:1px solid #687786;border-radius:11px;background:linear-gradient(145deg,#344351,#151d26);box-shadow:inset 0 1px 0 #ffffff18,0 2px 0 #030507;color:#e9f5ff;font-size:20px}
+.tag-result-main{display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:0!important;min-width:0;width:100%}
+.tag-code-row{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:8px!important;width:100%}
+.tag-result-code{display:block!important;min-width:0;overflow-wrap:anywhere;color:#f6f9fc;font-size:15px!important;font-weight:850!important;line-height:1.3;letter-spacing:.25px}
+.tag-result-arrow{display:block!important;flex:0 0 auto;color:#c4d0dc;font-size:23px;line-height:1}
+.tag-result-name{display:block!important;min-width:0;margin:5px 0 10px!important;color:#c8d3de;font-size:12px!important;font-weight:550;line-height:1.45!important;overflow-wrap:anywhere;white-space:normal!important}
+.tag-result-name.tag-missing{color:#9aa7b5;font-style:italic;font-weight:450}
+.tag-result-meta{display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:6px!important;min-width:0;width:100%;margin:0!important}
+.tag-result-meta .tag-meta-item{display:grid!important;grid-template-columns:minmax(86px,34%) minmax(0,1fr)!important;align-items:start!important;gap:8px!important;max-width:100%;min-width:0;padding:6px 8px!important;border:1px solid #344351!important;border-radius:8px!important;background:#0b121a!important;color:#d2dce6!important;font-size:11px!important;line-height:1.35!important;white-space:normal!important;overflow-wrap:anywhere}
+.tag-result-meta .tag-meta-item small{display:block!important;margin:0!important;color:#899bab!important;font-size:9px!important;font-weight:800!important;line-height:1.4!important;letter-spacing:.55px}
+.tag-result-meta .tag-meta-item b{display:block!important;min-width:0;color:#e6edf4!important;font-size:11px!important;font-weight:650!important;overflow-wrap:anywhere;white-space:normal!important}
+.tag-match-type{display:block!important;margin-top:9px!important;color:#9cabb9!important;font-size:9px!important;line-height:1.4!important;white-space:normal!important}
+.tag-result-card mark{background:#e9eef3;color:#10151a;border-radius:3px;padding:0 1px}
+.tag-result-card .tag-result-code mark{font-weight:900}
+@media(min-width:560px){.tag-results-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}}
+
 </style>
 </head>
 <body>
