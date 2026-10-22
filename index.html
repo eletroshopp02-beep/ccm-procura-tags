@@ -170,9 +170,21 @@ body.assistant-mode .note{display:none}
 @media(max-width:440px){.chat-topbar{height:54px;flex-basis:54px;padding:0 12px}.chat-brand strong{font-size:14px}.chat-brand small{font-size:10px}.ai-welcome{justify-content:center;padding:12px 18px 20px}.welcome-symbol{width:48px;height:48px;font-size:30px;margin-bottom:14px;border-radius:17px}.ai-welcome>p{font-size:13px;margin-bottom:20px}.prompt-grid{gap:8px}.prompt-grid button{min-height:100px;padding:12px 24px 11px 11px;border-radius:14px}.prompt-grid button b{font-size:12px}.prompt-grid button small{font-size:10px}.context-fields{grid-template-columns:1fr}.chat-bottom{padding-left:10px;padding-right:10px}.chat-disclaimer{font-size:9px}.chat-disclaimer span:last-child{display:none}}
 @media(max-height:650px){.ai-welcome{justify-content:flex-start;padding-top:18px}.ai-welcome>p{margin-bottom:14px}.prompt-grid button{min-height:82px}.welcome-symbol{display:none}}
 
+
+.app-update-banner{position:sticky;top:6px;z-index:120;display:flex;align-items:center;gap:10px;margin:0 0 12px;padding:12px;border:1px solid #93a4b7;border-radius:14px;background:linear-gradient(145deg,#f4f7fb,#bfcbd7);color:#101720;box-shadow:0 5px 0 #020304,0 12px 24px #0007}
+.app-update-copy{display:flex;flex:1;min-width:0;flex-direction:column;gap:2px;font-size:12px}.app-update-copy strong{font-size:13px}.app-update-copy span{line-height:1.35}
+.app-update-button{border:1px solid #fff;border-radius:10px;padding:10px 12px;background:linear-gradient(180deg,#242d37,#080b10);color:#fff;font-weight:800;white-space:nowrap}
+.app-update-close{border:0;background:transparent;color:#17202a;font-size:22px;padding:0 2px}
+.app-update-banner.hide{display:none!important}
+@media(max-width:380px){.app-update-banner{gap:6px;padding:9px}.app-update-button{padding:9px 8px;font-size:11px}.app-update-copy span{font-size:10px}}
 </style>
 </head>
 <body>
+<div id="app-update-banner" class="app-update-banner hide" role="status" aria-live="polite">
+  <div class="app-update-copy"><strong>Atualização disponível</strong><span id="app-update-message">Há uma nova versão do Manutenção Pro Industrial.</span></div>
+  <button id="app-update-button" class="app-update-button" type="button" onclick="updateAppNow()">Atualizar agora</button>
+  <button class="app-update-close" type="button" aria-label="Dispensar aviso" onclick="dismissAppUpdate()">×</button>
+</div>
 <header class="top">
   <div class="logo">⚙</div><div class="brand">MANUTENÇÃO<span>PRO INDUSTRIAL</span></div>
   <div class="top-actions"><button class="icon-btn" onclick="refreshAll()" aria-label="Atualizar informações" title="Atualizar">↻</button><button class="icon-btn" onclick="go('more')" aria-label="Mais opções" title="Mais">⋯</button></div>
@@ -283,4 +295,27 @@ body.assistant-mode .note{display:none}
 <div id="toast" class="toast hide" role="status"></div>
 <script src="./tags-base.js"></script>
 <script src="./app.js"></script>
+<script>
+(function(){
+  if(!('serviceWorker' in navigator)) return;
+  let reg=null, reloading=false;
+  function showUpdate(message){const b=document.getElementById('app-update-banner');if(!b)return;const m=document.getElementById('app-update-message');if(m)m.textContent=message||'Há uma nova versão do Manutenção Pro Industrial.';b.classList.remove('hide')}
+  window.dismissAppUpdate=function(){const b=document.getElementById('app-update-banner');if(b)b.classList.add('hide')};
+  window.updateAppNow=async function(){
+    const btn=document.getElementById('app-update-button');if(btn){btn.disabled=true;btn.textContent='Atualizando…'}
+    try{
+      if(reg){await reg.update();if(reg.waiting){reg.waiting.postMessage({type:'SKIP_WAITING'});showUpdate('Aplicando a atualização. O aplicativo será reaberto automaticamente.');return}
+        if(reg.installing){showUpdate('Baixando a atualização. Aguarde alguns segundos…');reg.installing.addEventListener('statechange',function(){if(this.state==='installed'&&navigator.serviceWorker.controller&&reg.waiting)reg.waiting.postMessage({type:'SKIP_WAITING'})});return}}
+      window.location.reload();
+    }catch(e){showUpdate('Não foi possível atualizar agora. Verifique a internet e tente novamente.');if(btn){btn.disabled=false;btn.textContent='Tentar novamente'}}
+  };
+  navigator.serviceWorker.addEventListener('controllerchange',function(){if(!reloading){reloading=true;window.location.reload()}});
+  window.addEventListener('load',async function(){try{
+    reg=await navigator.serviceWorker.register('./sw.js');
+    if(reg.waiting&&navigator.serviceWorker.controller)showUpdate('Uma versão nova está pronta para instalar.');
+    reg.addEventListener('updatefound',function(){const worker=reg.installing;if(!worker)return;worker.addEventListener('statechange',function(){if(worker.state==='installed'&&navigator.serviceWorker.controller)showUpdate('Uma nova versão está pronta. Toque em “Atualizar agora” para aplicar.')})});
+    setInterval(function(){reg.update().catch(function(){})},300000);
+  }catch(e){}});
+})();
+</script>
 </body></html>
