@@ -1,5 +1,6 @@
-const CACHE_NAME = 'manutencao-pro-v2.1.6';
+const CACHE_NAME = 'manutencao-pro-v2.1.7';
 const APP_SHELL = ['./','./index.html','./app.js','./tags-base.js','./manifest.json','./icons/icon.svg'];
+self.addEventListener('message',event=>{if(event.data&&event.data.type==='SKIP_WAITING')self.skipWaiting()});
 self.addEventListener('install',event=>{event.waitUntil(caches.open(CACHE_NAME).then(cache=>cache.addAll(APP_SHELL)).then(()=>self.skipWaiting()))});
 self.addEventListener('activate',event=>{event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key!==CACHE_NAME).map(key=>caches.delete(key)))).then(()=>self.clients.claim()))});
 self.addEventListener('fetch',event=>{
