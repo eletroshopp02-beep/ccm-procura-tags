@@ -75,3 +75,23 @@ $('mega-mode').addEventListener('change',()=>{$('mega-ground-fields').classList.
 initCatalog();renderChat();
 ['micro-tag','mega-tag','ai-tag'].forEach(id=>{if($(id))$(id).addEventListener('input',()=>updateTagOptions(id))});
 if('serviceWorker' in navigator&&location.protocol.startsWith('http'))window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
+
+
+const diagramGlossary=[
+{term:'NA — normalmente aberto',code:'NA',desc:'Contato que fica aberto em sua condição normal de referência e fecha quando acionado. Confira a convenção do fabricante e o símbolo do projeto.'},
+{term:'NF — normalmente fechado',code:'NF',desc:'Contato que fica fechado em sua condição normal de referência e abre quando acionado. Não confunda condição normal com condição energizada.'},
+{term:'K — contator ou relé',code:'K K1 KM',desc:'Designação comum para relés e contatores. Bobina e contatos auxiliares podem aparecer em locais diferentes e se relacionam por referências cruzadas.'},
+{term:'M — motor',code:'M motor',desc:'Confira TAG, potência, tensão, proteção, bornes e folha do projeto antes de associar o símbolo a uma ligação física.'},
+{term:'QF — disjuntor',code:'QF disjuntor proteção',desc:'Dispositivo de proteção/seccionamento conforme a aplicação. Confirme a função na legenda e na especificação.'},
+{term:'F — fusível ou proteção',code:'F FU fusível',desc:'Pode identificar fusível ou outro dispositivo de proteção conforme a norma e a legenda adotadas no projeto.'},
+{term:'S — botoeira ou chave',code:'S S0 S1 botão chave',desc:'Dispositivo de comando, como botão, seletora ou chave de posição. Leia a identificação e a condição normal dos contatos.'},
+{term:'B / SQ — sensor ou fim de curso',code:'B SQ sensor fim de curso',desc:'Pode identificar sensor, detector ou chave de posição. Confira tecnologia, alimentação e tipo de saída.'},
+{term:'X / XT — borne ou conector',code:'X XT borne terminal',desc:'Identifica frequentemente régua de bornes ou conector. Use número do borne e folha correspondente para rastrear o fio.'},
+{term:'PLC / CLP — controlador',code:'PLC CLP entrada saída IO',desc:'Relacione endereços de entrada/saída com a lista de I/O, programa aprovado e esquema elétrico.'},
+{term:'PE — condutor de proteção',code:'PE terra aterramento',desc:'Condutor de proteção. Não confunda com neutro ou retorno de sinal; siga o projeto de aterramento e normas aplicáveis.'},
+{term:'A1 / A2 — terminais de bobina',code:'A1 A2 bobina',desc:'Identificações comuns dos terminais de bobina. A tensão e a polaridade, quando aplicável, devem corresponder à placa do componente.'},
+{term:'Referência cruzada',code:'referência cruzada folha fio página',desc:'Indicação que ajuda a encontrar contatos relacionados ou continuação do circuito em outra posição ou folha.'}
+];
+function filterDiagramGlossary(){const box=document.getElementById('diagram-glossary'),input=document.getElementById('diagram-search');if(!box)return;const q=(input?input.value:'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().trim();const list=diagramGlossary.filter(x=>!q||(x.term+' '+x.code+' '+x.desc).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().includes(q));box.innerHTML=list.map(x=>'<article class="diagram-glossary-item"><b>'+esc(x.term)+'</b><p>'+esc(x.desc)+'</p></article>').join('')||'<div class="empty">Nenhum símbolo encontrado. Tente outra sigla ou consulte a legenda do projeto.</div>'}
+
+document.addEventListener('DOMContentLoaded',filterDiagramGlossary);
