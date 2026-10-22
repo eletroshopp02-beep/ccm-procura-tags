@@ -1,5 +1,4 @@
 /* Catálogo inicial de TAGs — Sala Elétrica Preparo de Madeira. Fonte: listas fotografadas pelo usuário. */
-   Fonte: listas fotografadas pelo usuário. TAGs normalizadas sem duplicatas. */
 const MASTER_TAGS = `
 31100-PINV-0004|TAMBOR DESCASCADOR LINHA 2|31100CCM0003
 31100-PINV-0005|TAMBOR DESCASCADOR LINHA 2|31100CCM0003
