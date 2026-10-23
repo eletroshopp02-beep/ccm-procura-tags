@@ -177,6 +177,13 @@ body.assistant-mode .note{display:none}
 .app-update-close{border:0;background:transparent;color:#17202a;font-size:22px;padding:0 2px}
 .app-update-banner.hide{display:none!important}
 @media(max-width:380px){.app-update-banner{gap:6px;padding:9px}.app-update-button{padding:9px 8px;font-size:11px}.app-update-copy span{font-size:10px}}
+
+/* v2.3.0 — acabamento responsivo, acessibilidade e leitura em campo */
+.build-chip{display:inline-flex;align-items:center;gap:5px;margin-left:8px;padding:4px 8px;border:1px solid rgba(84,216,255,.35);border-radius:999px;background:rgba(84,216,255,.09);color:var(--cyan);font-size:10px;font-weight:800;letter-spacing:.08em;vertical-align:middle;white-space:nowrap}
+button,.btn,.tile,.nav-btn{ -webkit-tap-highlight-color:transparent }
+button:focus-visible{outline:3px solid var(--cyan);outline-offset:3px}
+@media(max-width:520px){body{padding-left:12px;padding-right:12px}.hero{padding:22px 17px}.hero h1{font-size:clamp(25px,7vw,34px)}.grid.three{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.tile{min-height:112px;padding:13px 11px}.tile strong{font-size:13px}.tile small{font-size:11px}.status-strip{gap:7px}.status-pill{min-width:0;overflow-wrap:anywhere;font-size:10px}.build-chip{margin-left:3px;font-size:9px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
 </style>
 </head>
 <body>
@@ -191,9 +198,9 @@ body.assistant-mode .note{display:none}
 </header>
 <main>
 <section id="home" class="page active">
-  <div class="hero"><div class="eyebrow">Central de manutenção</div><h1>Manutenção eficiente.<br>Decisões mais seguras.</h1><p>Consulta técnica, TAGs, ensaios e relatórios em um único lugar — inclusive sem internet.</p><div class="hero-actions"><button class="btn primary" onclick="go('tags')">⌕ Buscar TAG</button><button class="btn accent" onclick="go('assistant')">✦ Manutenção Pro IA</button></div></div>
+  <div class="hero"><div class="eyebrow">CENTRAL DE MANUTENÇÃO <span class="build-chip">VERSÃO 2.3.0</span></div><h1>Manutenção eficiente.<br>Decisões mais seguras.</h1><p>Consulta técnica, TAGs, ensaios e relatórios em um único lugar — inclusive sem internet.</p><div class="hero-actions"><button class="btn primary" onclick="go('tags')">⌕ Buscar TAG</button><button class="btn accent" onclick="go('assistant')">✦ Manutenção Pro IA</button></div></div>
   <div class="status-strip"><div class="status-pill"><span class="dot"></span><span id="net-status">Modo offline preparado</span></div><div class="status-pill">▦ <b id="tag-count">Catálogo local</b></div><div class="status-pill">⟳ <b id="last-sync">Atualização manual</b></div></div>
-  <div class="section-head"><div><small>Ferramentas industriais</small><h2>Central de ferramentas</h2></div><span class="muted">09 módulos</span></div>
+  <div class="section-head"><div><small>Ferramentas industriais</small><h2>Central de ferramentas</h2></div><span class="muted">10 módulos</span></div>
   <div class="grid three">
     <button class="tile" onclick="go('tags')"><span class="ico">⌕</span><strong>Buscar TAGs</strong><small>Por código, sufixo, área e CCM</small></button>
     <button class="tile" onclick="go('cfw')"><span class="ico">▥</span><strong>WEG CFW11</strong><small>Falhas, parâmetros e cuidados</small></button>
