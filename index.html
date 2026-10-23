@@ -199,15 +199,15 @@ button:focus-visible{outline:3px solid var(--cyan);outline-offset:3px}
 </header>
 <main>
 <section id="home" class="page active">
-  <div class="hero"><div class="eyebrow">CENTRAL DE MANUTENÇÃO <span class="build-chip">VERSÃO 2.6.0</span></div><h1>Manutenção eficiente.<br>Decisões mais seguras.</h1><p>Consulta técnica, TAGs, ensaios e relatórios em um único lugar — inclusive sem internet.</p><div class="hero-actions"><button class="btn primary" onclick="go('tags')">⌕ Buscar TAG</button><button class="btn accent" onclick="go('assistant')">✦ Manutenção Pro IA</button></div></div>
+  <div class="hero"><div class="eyebrow">CENTRAL DE MANUTENÇÃO <span class="build-chip">VERSÃO 2.6.1</span></div><h1>Manutenção eficiente.<br>Decisões mais seguras.</h1><p>Consulta técnica, TAGs, ensaios e relatórios em um único lugar — inclusive sem internet.</p><div class="hero-actions"><button class="btn primary" onclick="go('tags')">⌕ Buscar TAG</button><button class="btn accent" onclick="go('assistant')">✦ Manutenção Pro IA</button></div></div>
   <div class="status-strip"><div class="status-pill"><span class="dot"></span><span id="net-status">Modo offline preparado</span></div><div class="status-pill">▦ <b id="tag-count">Catálogo local</b></div><div class="status-pill">⟳ <b id="last-sync">Atualização manual</b></div></div>
   <div class="section-head"><div><small>Ferramentas industriais</small><h2>Central de ferramentas</h2></div><span class="muted">13 módulos</span></div>
   <div class="grid three">
     <button class="tile" onclick="go('tags')"><span class="ico">⌕</span><strong>Buscar TAGs</strong><small>Por código, sufixo, área e CCM</small></button>
     <button class="tile" onclick="go('cfw')"><span class="ico">▥</span><strong>WEG CFW11</strong><small>Falhas, parâmetros e cuidados</small></button>
-    <button class="tile" onclick="go('library')"><span class="ico">⚡</span><strong>Inversores ABB</strong><small>Biblioteca de falhas e diagnóstico</small></button>
-    <button class="tile" onclick="go('library')"><span class="ico">▦</span><strong>Relés inteligentes</strong><small>Entradas, saídas e comunicação</small></button>
-    <button class="tile" onclick="go('library')"><span class="ico">⏚</span><strong>Relés de média tensão</strong><small>Proteções e eventos</small></button>
+    <button class="tile" onclick="go('library');showDriveLibrary('abb')"><span class="ico">⚡</span><strong>Inversores ABB</strong><small>Biblioteca de falhas e diagnóstico</small></button>
+    <button class="tile" onclick="go('library');showDriveLibrary('smart')"><span class="ico">▦</span><strong>Relés inteligentes</strong><small>Entradas, saídas e comunicação</small></button>
+    <button class="tile" onclick="go('library');showDriveLibrary('mv')"><span class="ico">⏚</span><strong>Relés de média tensão</strong><small>Proteções e eventos</small></button>
     <button class="tile" onclick="go('calculators')"><span class="ico">▦</span><strong>Calculadoras</strong><small>Corrente e referências 156/157/158</small></button>
     <button class="tile" onclick="go('tests')"><span class="ico">☷</span><strong>Ensaios elétricos</strong><small>Micro-ohmímetro e megômetro</small></button>
     <button class="tile" onclick="go('assistant')"><span class="ico">✧</span><strong>Assistência técnica</strong><small>Diagnóstico guiado e IA</small></button>
