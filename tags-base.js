@@ -516,5 +516,8 @@ const MASTER_TAGS = `
 31310-M-5144|TAG manuscrita — descrição a confirmar|31100CCM0010
 31310-M-6165|TAG manuscrita — descrição a confirmar|31100CCM0010
 31400-M-4602|TAG manuscrita — descrição a confirmar|31100CCM0005
+31100-ALIM-RESERVA 2|ALIMENTADOR BANCO DE CAPACITOR 31100-CCM-0013|31100CCM0013
+31100-ALIM-RESERVA 4|ALIMENTADOR BANCO DE CAPACITORES 31100-CCM-0018|31100CCM0018
+31100-ALIM-RESERVA 4|ALIMENTADOR BANCO DE CAPACITORES 31100-CCM-0018|31100CCM0020
 31700-M-3116|TAG manuscrita — descrição a confirmar|31100CCM0017
 `.trim().split(/\r?\n/).map(line => { const [tag,name,ccm] = line.split('|'); return {tag,name,area:'Preparo de Madeira',ccm}; });
