@@ -1,5 +1,5 @@
 'use strict';
-const APP_VERSION='2.6.1',STORE_KEY='mpindustrial',SUPABASE_URL='https://lojzwsyrucgklohnwhsl.supabase.co',SUPABASE_KEY='sb_publishable_yLW6kZyt3YdLEaiNoEnSww_i_wjoOia';
+const APP_VERSION='2.6.2',STORE_KEY='mpindustrial',SUPABASE_URL='https://lojzwsyrucgklohnwhsl.supabase.co',SUPABASE_KEY='sb_publishable_yLW6kZyt3YdLEaiNoEnSww_i_wjoOia';
 let db={tags:[],areas:[],hist:[],tests:[],communityQueue:[]};
 try{db=Object.assign(db,JSON.parse(localStorage.getItem(STORE_KEY)||'{}'))}catch(e){}
 db.tags=Array.isArray(db.tags)?db.tags:[];db.areas=Array.isArray(db.areas)?db.areas:[];db.hist=Array.isArray(db.hist)?db.hist:[];db.tests=Array.isArray(db.tests)?db.tests:[];db.communityQueue=Array.isArray(db.communityQueue)?db.communityQueue:[];
@@ -80,7 +80,7 @@ try{const chat=JSON.parse(localStorage.getItem('mp-ai-chat-v2')||'[]');if(Array.
 $('mega-mode').addEventListener('change',()=>{$('mega-ground-fields').classList.toggle('hide',val('mega-mode')==='phase');$('mega-phase-fields').classList.toggle('hide',val('mega-mode')==='ground')});
 initCatalog();renderChat();
 ['micro-tag','mega-tag','ai-tag'].forEach(id=>{if($(id))$(id).addEventListener('input',()=>updateTagOptions(id))});
-if('serviceWorker' in navigator&&location.protocol.startsWith('http'))window.addEventListener('load',async()=>{try{const reg=await navigator.serviceWorker.register('./sw.js');reg.update().catch(()=>{});if(reg.waiting)reg.waiting.postMessage({type:'SKIP_WAITING'});navigator.serviceWorker.addEventListener('controllerchange',()=>{if(sessionStorage.getItem('mp-sw-reloaded')!=='2.6.1'){sessionStorage.setItem('mp-sw-reloaded','2.6.1');location.reload()}})}catch(e){}});
+if('serviceWorker' in navigator&&location.protocol.startsWith('http'))window.addEventListener('load',async()=>{try{const reg=await navigator.serviceWorker.register('./sw.js');reg.update().catch(()=>{});if(reg.waiting)reg.waiting.postMessage({type:'SKIP_WAITING'});navigator.serviceWorker.addEventListener('controllerchange',()=>{if(sessionStorage.getItem('mp-sw-reloaded')!=='2.6.2'){sessionStorage.setItem('mp-sw-reloaded','2.6.2');location.reload()}})}catch(e){}});
 
 
 const diagramGlossary=[
