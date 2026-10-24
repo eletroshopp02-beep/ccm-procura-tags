@@ -1,5 +1,5 @@
 'use strict';
-const APP_VERSION='2.6.8',STORE_KEY='mpindustrial',SUPABASE_URL='https://lojzwsyrucgklohnwhsl.supabase.co',SUPABASE_KEY='sb_publishable_yLW6kZyt3YdLEaiNoEnSww_i_wjoOia';
+const APP_VERSION='2.6.9',STORE_KEY='mpindustrial',SUPABASE_URL='https://lojzwsyrucgklohnwhsl.supabase.co',SUPABASE_KEY='sb_publishable_yLW6kZyt3YdLEaiNoEnSww_i_wjoOia';
 let db={tags:[],areas:[],hist:[],tests:[],communityQueue:[]};
 try{db=Object.assign(db,JSON.parse(localStorage.getItem(STORE_KEY)||'{}'))}catch(e){}
 db.tags=Array.isArray(db.tags)?db.tags:[];db.areas=Array.isArray(db.areas)?db.areas:[];db.hist=Array.isArray(db.hist)?db.hist:[];db.tests=Array.isArray(db.tests)?db.tests:[];db.communityQueue=Array.isArray(db.communityQueue)?db.communityQueue:[];
